@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خرید</title>
+    <link rel="stylesheet" href="../src/scss/base.css">
+    <link rel="stylesheet" href="../src/scss/pay.css">
+
+</head>
+
+<body>
+    <img id="bg" src="/public/image/bg-main-desktop.png" alt="">
+    <div class="container">
+        <div id="left">
+            <div id="cards">
+                <div id="varablecard">
+                    <img src="/public/image/bg-card-front.png" alt="">
+                    <div id="nums">
+                        <p id="1Num"></p>
+                        <p id="2Num"></p>
+                        <p id="3Num"></p>
+                        <p id="4Num"></p>
+                    </div>
+                    <div id="holder">
+                        <p></p>
+                    </div>
+                    <div id="cardCvv2">
+                        <p></p>
+                    </div>
+                </div>
+                <img src="/public/image/bg-card-back.png" alt="">
+            </div>
+        </div>
+        <div id="right">
+            <form dir="rtl">
+                <label>نام و نام خانوادگی دارنده کارت</label>
+                <input id="cardHolder" type="text" placeholder="نام و نام خانوادگی دارنده کارت">
+                <label>شماره کارت</label>
+                <input id="cardNumber" type="number" placeholder="شماره کارت">
+                <div>
+
+                    <div>
+                        <label>تاریخ انقضا</label>
+                        <div>
+                            <input id="dateY" type="number" placeholder="سال">
+                            <input id="dateM" type="number" placeholder="ماه">
+                        </div>
+                    </div>
+                    <div>
+                        <label>cvv2</label>
+                        <input maxlength="4" type="password" id="cvv2" placeholder="cvv2">
+                    </div>
+                </div>
+                <label>رمز دوم</label>
+                <input type="number" id="secPass" placeholder="رمز دوم">
+                <div style="margin-top: 25px;font-size: 20px;">
+                    <p id="finalP">قیمت نهایی : 555000</p>
+                </div>
+                <div>
+                    <a id="pay" href="#">
+                        <button>پرداخت</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <script type="module" src="../src/ts/pay.ts"></script>
+</body>
+
+</html>

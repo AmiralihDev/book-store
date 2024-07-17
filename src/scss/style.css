@@ -1,0 +1,119 @@
+.writeText {
+  width: 100%;
+  height: 550px;
+  background-color: antiquewhite;
+  background-image: url(../../public/image/section1bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+}
+.writeText div {
+  margin-top: 150px;
+  margin-right: 150px;
+}
+.writeText h1 {
+  font-size: 45px;
+  color: rgb(125, 0, 179);
+}
+
+.products h1 {
+  margin-bottom: 50px;
+  font-size: 28px;
+}
+
+.animationItem {
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  animation: 28s slide infinite linear;
+}
+
+.products-animation {
+  padding: 15px;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.bestBook {
+  margin: 50px 0;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.best-authors > div {
+  display: flex;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+.best-authors > h1 {
+  font-size: 40px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.author {
+  border: 1px solid #b9b9b9;
+  padding: 20px;
+  margin-right: 13px;
+  margin-bottom: 12px;
+  width: 32%;
+  background-color: #ffffff;
+  height: 350px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.author img {
+  width: 140px;
+  height: 140px;
+  border: 2px solid rgb(125, 0, 179);
+  border-radius: 50%;
+}
+.author h1 {
+  font-size: 28px;
+  text-align: center;
+}
+
+.products {
+  width: 98%;
+  margin: 80px auto;
+}
+.products #viewAll {
+  background-color: #ebebeb;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+.products .active-tab {
+  background-color: rgb(125, 0, 179);
+  color: #fff;
+}
+.products .tab-btn {
+  cursor: pointer;
+  font-size: 18px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+.products .tab-btn:hover {
+  background-color: rgb(125, 0, 179);
+  color: #fff;
+}
+.products > div {
+  display: flex;
+}
+.products > div .books * {
+  margin: 0;
+}
+.products > div div:first-child {
+  display: inline-block;
+}/*# sourceMappingURL=style.css.map */

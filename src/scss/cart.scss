@@ -1,0 +1,40 @@
+$perple: rgb(125, 0, 179);
+#container {
+  position: relative;
+  #products {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 150px;
+    width: 100%;
+  }
+}
+#showResult {
+  width: 50%;
+  position: absolute;
+  right: 0;
+  bottom: 45px;
+
+  hr {
+    margin: 15px 0;
+  }
+  div {
+    position: relative;
+    display: flex;
+    a {
+      position: absolute;
+      left: 0;
+      button {
+        width: 150px;
+        height: 40px;
+        background-color: #fff;
+        border: 2px solid $perple;
+        transition: all 0.3s;
+        border-radius: 5px;
+        &:hover {
+          background-color: $perple;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

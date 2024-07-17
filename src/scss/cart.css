@@ -1,0 +1,39 @@
+#container {
+  position: relative;
+}
+#container #products {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 150px;
+  width: 100%;
+}
+
+#showResult {
+  width: 50%;
+  position: absolute;
+  right: 0;
+  bottom: 45px;
+}
+#showResult hr {
+  margin: 15px 0;
+}
+#showResult div {
+  position: relative;
+  display: flex;
+}
+#showResult div a {
+  position: absolute;
+  left: 0;
+}
+#showResult div a button {
+  width: 150px;
+  height: 40px;
+  background-color: #fff;
+  border: 2px solid rgb(125, 0, 179);
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+#showResult div a button:hover {
+  background-color: rgb(125, 0, 179);
+  color: #fff;
+}/*# sourceMappingURL=cart.css.map */

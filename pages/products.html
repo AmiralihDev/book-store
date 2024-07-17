@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>همه محصولات</title>
+    <link rel="stylesheet" href="../src/scss/base.css">
+    <link rel="stylesheet" href="../src/scss/product.css">
+    <link rel="stylesheet" href="../src/scss/fav.css">
+    <link rel="stylesheet" href="../src/scss/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body dir="rtl">
+    <header>
+        <div>
+            <input  id="search-filter"  type="text" placeholder="جستجوی نام کتاب، ژانر، نویسنده و سال انتشار">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg>
+        </div>
+        <div>
+            <a href="/pages/about.html">درباره ما</a>
+            <a href="/pages/priceBox.html"><div id="cartLength"></div>سبد خرید</a>
+            <a href="/pages/fav.html"><div id="favLength"></div> علاقه مندی ها</a>
+            <a href="/pages/products.html">محصولات</a>
+            <a href="/index.html">خانه</a>
+        </div>
+        <div>
+            <a id="icon" href="./index.html">
+                <h1>Book Store</h1>
+                <img src="/public/image/book.png" alt="">
+            </a>
+        </div>
+    </header>
+    <div id="container">
+        <section class="hiddenEl products">
+            <div class="tabsBtn">
+              <div>
+      
+                <span value="عاشقانه" class="tab-btn">عاشقانه</span>
+                <span value="روانشناسی" class="tab-btn">روانشناسی</span>
+                <span value="ترسناک" class="tab-btn">ترسناک</span>
+                <span value="جنایی" class="tab-btn">جنایی</span>
+                <span value="کمدی" class="tab-btn">کمدی</span>
+                <span value="انگیزشی" class="tab-btn">انگیزشی</span>
+                <span value="همه" class="tab-btn active-tab">همه</span>
+      
+              </div>
+            </div>
+            <div class="products-list">
+      
+            </div>
+          </section>
+    </div>
+    <script type="module" src="../src/ts/base.ts"></script>
+    <script type="module" src="../src/ts/products.ts"></script>
+</body>
+
+</html>
