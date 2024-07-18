@@ -41,16 +41,16 @@ $perple: rgb(125, 0, 179);
     }
     img{
         margin: 0 auto;
-        width: 200px;
+        width: 210px;
     }
     div{
         *{
-            margin-top: 5px;
+            margin-top: 0px;
         }
     }
     div:nth-child(2) {
         position: absolute;
-        bottom: 200px;
+        bottom: 180px;
     }
     div:nth-child(3){
         position: absolute;

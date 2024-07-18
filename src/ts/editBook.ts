@@ -49,57 +49,82 @@ function editBook(e: object) {
             let newBookYear = document.getElementById("newBookYear")
             let newBookPrice = document.getElementById("newBookPrice")
             let newBookAuthor = document.getElementById("newBookAuthor")
-        
-        confirm?.addEventListener("click", () => {
-            fetch('/single',{
-                method : "post"
+            let url: any;
+            newBookSrc?.addEventListener("change", () => {
+
+                let fr = new FileReader()
+                fr.readAsDataURL(newBookSrc.files[0])
+                fr.addEventListener("load", () => {
+                    url = fr.result
+                    if (url){
+
+                        book.imgSrc = url.toString()
+                    }
+                })
+
             })
-            // book.imgSrc = 
-            book.name = newBookName.value
-            book.zhanr = newBookZhanr.value
-            book.author = newBookAuthor.value
-            book.price = parseInt(newBookPrice.value)
-            book.makeYear = parseInt(newBookYear.value)
-            setDataToLs("bookList", JSON.stringify(bookList))
-            for (let index = 0; index < favBook.length; index++) {
-                const book = favBook[index];
+            confirm?.addEventListener("click", () => {
+
+                book.name = newBookName.value
+                book.zhanr = newBookZhanr.value
+                book.author = newBookAuthor.value
+                book.price = parseInt(newBookPrice.value)
+                book.makeYear = parseInt(newBookYear.value)
+                setDataToLs("bookList", JSON.stringify(bookList))
+                for (let index = 0; index < favBook.length; index++) {
+                    const favbook = favBook[index];
 
 
-                if (`شماره کتاب : ${book.id}` == bookNum &&
-                    book.name == bookName &&
-                    `ژانر : ${book.zhanr}` == zhanr &&
-                    `نویسنده : ${book.author}` == author &&
-                    `سال انتشار : ${book.makeYear}` == makeNum &&
-                    `قیمت کتاب : ${book.price.toLocaleString()}` == price
-                ) {
+                    if (`شماره کتاب : ${favbook.id}` == bookNum &&
+                        favbook.name == bookName &&
+                        `ژانر : ${favbook.zhanr}` == zhanr &&
+                        `نویسنده : ${favbook.author}` == author &&
+                        `سال انتشار : ${favbook.makeYear}` == makeNum &&
+                        `قیمت کتاب : ${favbook.price.toLocaleString()}` == price
+                    ) {
 
+                        if (url){
 
-
+                            favbook.imgSrc = url.toString()
+                        }
+                        favbook.name = newBookName.value
+                        favbook.zhanr = newBookZhanr.value
+                        favbook.author = newBookAuthor.value
+                        favbook.price = parseInt(newBookPrice.value)
+                        favbook.makeYear = parseInt(newBookYear.value)
+                        setDataToLs("favBook", JSON.stringify(favBook))
+                    }
                 }
-            }
 
-            for (let index = 0; index < cartBook.length; index++) {
-                const book = cartBook[index];
-
-
-                if (`شماره کتاب : ${book.id}` == bookNum &&
-                    book.name == bookName &&
-                    `ژانر : ${book.zhanr}` == zhanr &&
-                    `نویسنده : ${book.author}` == author &&
-                    `سال انتشار : ${book.makeYear}` == makeNum &&
-                    `قیمت کتاب : ${book.price.toLocaleString()}` == price
-                ) {
-
-                    setDataToLs("cartBook", JSON.stringify(cartBook))
+                for (let index = 0; index < cartBook.length; index++) {
+                    const cartbook = cartBook[index];
 
 
+                    if (`شماره کتاب : ${cartbook.id}` == bookNum &&
+                        cartbook.name == bookName &&
+                        `ژانر : ${cartbook.zhanr}` == zhanr &&
+                        `نویسنده : ${cartbook.author}` == author &&
+                        `سال انتشار : ${cartbook.makeYear}` == makeNum &&
+                        `قیمت کتاب : ${cartbook.price.toLocaleString()}` == price
+                    ) {
+                        if (url){
+
+                            cartbook.imgSrc = url.toString()
+                        }
+                        cartbook.name = newBookName.value
+                        cartbook.zhanr = newBookZhanr.value
+                        cartbook.author = newBookAuthor.value
+                        cartbook.price = parseInt(newBookPrice.value)
+                        cartbook.makeYear = parseInt(newBookYear.value)
+
+
+                        setDataToLs("cartBook", JSON.stringify(cartBook))
+                    }
                 }
-            }
-        })
+                location.reload()
+            })
+        }
     }
-}
-
-
 
 
 
@@ -124,7 +149,7 @@ function getNewData(bookName: string, zhanr: string, author: string, makeYear: s
                 label: "عکس کتاب",
                 type: "file",
                 id: "newBookSrc",
-                
+
             },
             {
                 label: "نام کتاب",
@@ -167,6 +192,6 @@ function getNewData(bookName: string, zhanr: string, author: string, makeYear: s
 
 
 
-    
+
 }
 export { editBook }
