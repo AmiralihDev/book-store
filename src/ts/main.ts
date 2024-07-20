@@ -282,3 +282,4 @@ function filterBooks(e: string) {
 }
 
 
+export {getBookId}

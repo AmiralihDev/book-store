@@ -2,10 +2,14 @@ import { addBookToCart } from "./addToCart"
 import { addBookToFav } from "./addToFav"
 import { editBook } from "./editBook"
 import { getDataFromLs } from "./getDataFromLs"
+import { getBookId } from "./main"
 import { setDataToLs } from "./setDataToLs"
 import { showNewBook } from "./showData"
+import { silverBox } from "./silverBox"
 import { trashBook } from "./trashBook"
 
+
+let newBook = document.getElementById("newBook")
 let product = document.querySelector(".products-list")
 let zhanrFilter = document.querySelector(".active-tab")
 let bookList: object[] = []
@@ -20,6 +24,7 @@ function eventListener() {
             filterBooks(tab.getAttribute("value"))
         })
     })
+    newBook?.addEventListener("click", addNewBookToList)
 }
 eventListener()
 function init() {
@@ -29,7 +34,6 @@ function init() {
     if (data) bookList = JSON.parse(data)
     else setDataToLs("bookList", JSON.stringify(bookList))
     filterBooks(zhanrFilter?.getAttribute("value"))
-
 }
 
 
@@ -129,4 +133,105 @@ function filterSearchBook() {
         });
         localStorage.setItem("userBookSearch", "")
     }
+}
+
+
+function addNewBookToList() {
+    silverBox({
+        title: {
+            text: "افزودن کتاب جدید"
+        },
+        centerContent: true,
+        text: "مشخصات جدید را وارد کنید",
+        showCloseButton: true,
+        confirmButton: {
+            text: "افزودن",
+            closeOnClick: true,
+            id: "confirm"
+        },
+        cancelButton: {},
+        input: [
+            {
+                label: "عکس کتاب",
+                type: "file",
+                id: "newBookSrc",
+
+            },
+            {
+                label: "نام کتاب",
+                type: "text",
+                placeHolder: "نام جدید کتاب را وارد کنید",
+                maxLength: 30,
+                id: "newBookName"
+            },
+            {
+                label: "نویسنده",
+                type: "text",
+                placeHolder: "نام نویسنده را وارد کنید",
+                id: "newBookAuthor"
+            },
+            {
+                label: "ژانر کتاب",
+                type: "text",
+                placeHolder: " ژانر کتاب را وارد کنید",
+                id: "newBookZhanr"
+            },
+            {
+                label: "سال انتشار ",
+                type: "number",
+                placeHolder: "سال انتشار را وارد کنید",
+                id: "newBookYear"
+            },
+            {
+                label: "قیمت کتاب",
+                type: "number",
+                placeHolder: " قیمت کتاب را وارد کنید",
+                id: "newBookPrice"
+            },
+        ]
+    })
+
+    let confirm = document.getElementById("confirm")
+    let newBookSrc = document.getElementById("newBookSrc")
+    let newBookName = document.getElementById("newBookName")
+    let newBookZhanr = document.getElementById("newBookZhanr")
+    let newBookYear = document.getElementById("newBookYear")
+    let newBookPrice = document.getElementById("newBookPrice")
+    let newBookAuthor = document.getElementById("newBookAuthor")
+    let url: any;
+
+    let book = {
+        name : "",
+        id : 0,
+        author : "",
+        makeYear : "",
+        zhanr : "",
+        price : 0,
+        imgSrc : ""
+    }
+    newBookSrc?.addEventListener("change", () => {
+
+        let fr = new FileReader()
+        fr.readAsDataURL(newBookSrc.files[0])
+        fr.addEventListener("load", () => {
+            url = fr.result
+            if (url) {
+
+                book.imgSrc = url.toString()
+            }
+        })
+    })
+
+
+    confirm?.addEventListener("click", () => {
+        book.name = newBookName.value;
+        book.author = newBookAuthor.value;
+        book.makeYear = newBookYear.value;
+        book.zhanr = newBookZhanr.value;
+        book.price = newBookPrice.value;
+        book.id = bookList.length + 1
+        bookList.push(book)
+        setDataToLs("bookList",JSON.stringify(bookList))
+        location.reload()
+    })
 }
