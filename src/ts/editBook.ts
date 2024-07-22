@@ -56,9 +56,10 @@ function editBook(e: object) {
                 fr.readAsDataURL(newBookSrc.files[0])
                 fr.addEventListener("load", () => {
                     url = fr.result
-                    if (url){
+                    if (url) {
 
                         book.imgSrc = url.toString()
+                        imgSrc = url.toString()
                     }
                 })
 
@@ -70,6 +71,12 @@ function editBook(e: object) {
                 book.author = newBookAuthor.value
                 book.price = parseInt(newBookPrice.value)
                 book.makeYear = parseInt(newBookYear.value)
+
+                bookName = newBookName.value
+                zhanr = newBookZhanr.value
+                author = newBookAuthor.value
+                price = newBookPrice.value
+                makeNum = newBookYear.value
                 setDataToLs("bookList", JSON.stringify(bookList))
                 for (let index = 0; index < favBook.length; index++) {
                     const favbook = favBook[index];
@@ -83,7 +90,7 @@ function editBook(e: object) {
                         `قیمت کتاب : ${favbook.price.toLocaleString()}` == price
                     ) {
 
-                        if (url){
+                        if (url) {
 
                             favbook.imgSrc = url.toString()
                         }
@@ -107,7 +114,7 @@ function editBook(e: object) {
                         `سال انتشار : ${cartbook.makeYear}` == makeNum &&
                         `قیمت کتاب : ${cartbook.price.toLocaleString()}` == price
                     ) {
-                        if (url){
+                        if (url) {
 
                             cartbook.imgSrc = url.toString()
                         }
@@ -121,7 +128,6 @@ function editBook(e: object) {
                         setDataToLs("cartBook", JSON.stringify(cartBook))
                     }
                 }
-                location.reload()
             })
         }
     }
@@ -143,7 +149,9 @@ function getNewData(bookName: string, zhanr: string, author: string, makeYear: s
             closeOnClick: true,
             id: "confirm"
         },
-        cancelButton: {},
+        cancelButton: {
+            text: "لغو"
+        },
         input: [
             {
                 label: "عکس کتاب",

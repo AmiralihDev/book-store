@@ -1,9 +1,11 @@
 import { addBookToCart } from "./addToCart";
 import { addBookToFav } from "./addToFav";
 import { editBook } from "./editBook";
+import { removeBookFromFav } from "./fav";
 import { getDataFromLs } from "./getDataFromLs";
+import { removeBookFromCart } from "./removeFromCart";
 import { setDataToLs } from "./setDataToLs";
-import { showFavBook, showNewBook } from "./showData";
+import { showCartBook, showFavAndCartBook, showFavBook, showNewBook } from "./showData";
 import { silverBox } from "./silverBox";
 import { trashBook } from "./trashBook";
 import { updateCartLength, updateFavLength } from "./updateLength";
@@ -19,6 +21,7 @@ let productAnimation2 = document.querySelector("#animationItem2")
 let productsList = document.querySelector(".products-list")
 
 // dataVariable
+let cartBook: object[] = []
 let favBook: object[] = []
 let bookList: object[] = [
     {
@@ -27,8 +30,8 @@ let bookList: object[] = [
         zhanr: "انگیزشی",
         author: "برایان تریسی",
         makeYear: 1350,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
-        price: 150_000_000
+        imgSrc: "/public/bookimg/default.jpg",
+        price: 450_000
 
     },
     {
@@ -37,8 +40,8 @@ let bookList: object[] = [
         zhanr: "انگیزشی",
         author: "برایان تریسی",
         makeYear: 1380,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
-        price: 150_000
+        imgSrc: "/public/bookimg/default.jpg",
+        price: 100_000
     },
     {
         id: 0,
@@ -46,37 +49,8 @@ let bookList: object[] = [
         zhanr: "روانشناسی",
         author: "برایان تریسی",
         makeYear: 1380,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
-        price: 150_000
-    },
-    {
-        id: 0,
-        name: "عادت های اتمی",
-        zhanr: "انگیزشی",
-        author: "برایان تریسی",
-        makeYear: 1350,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
-        price: 150_000
-
-    },
-    {
-        id: 0,
-        name: "عادت های اتمی",
-        zhanr: "انگیزشی",
-        author: "برایان تریسی",
-        makeYear: 1380,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
-        price: 150_000
-
-    },
-    {
-        id: 0,
-        name: "عادت های اتمی",
-        zhanr: "روانشناسی",
-        author: "برایان تریسی",
-        makeYear: 1380,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
-        price: 150_000
+        imgSrc: "/public/bookimg/default.jpg",
+        price: 500_000
     },
     {
         id: 0,
@@ -84,7 +58,7 @@ let bookList: object[] = [
         zhanr: "انگیزشی",
         author: "برایان تریسی",
         makeYear: 1350,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
+        imgSrc: "/public/bookimg/default.jpg",
         price: 150_000
 
     },
@@ -94,7 +68,7 @@ let bookList: object[] = [
         zhanr: "انگیزشی",
         author: "برایان تریسی",
         makeYear: 1380,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
+        imgSrc: "/public/bookimg/default.jpg",
         price: 150_000
 
     },
@@ -104,8 +78,28 @@ let bookList: object[] = [
         zhanr: "روانشناسی",
         author: "برایان تریسی",
         makeYear: 1380,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
-        price: 150_000
+        imgSrc: "/public/bookimg/default.jpg",
+        price: 270_000
+    },
+    {
+        id: 0,
+        name: "عادت های اتمی",
+        zhanr: "انگیزشی",
+        author: "برایان تریسی",
+        makeYear: 1350,
+        imgSrc: "/public/bookimg/default.jpg",
+        price: 365_000
+
+    },
+    {
+        id: 0,
+        name: "عادت های اتمی",
+        zhanr: "انگیزشی",
+        author: "برایان تریسی",
+        makeYear: 1380,
+        imgSrc: "/public/bookimg/default.jpg",
+        price: 415_000
+
     },
     {
         id: 0,
@@ -113,8 +107,8 @@ let bookList: object[] = [
         zhanr: "روانشناسی",
         author: "برایان تریسی",
         makeYear: 1380,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
-        price: 150_000
+        imgSrc: "/public/bookimg/default.jpg",
+        price: 200_000
     },
     {
         id: 0,
@@ -122,8 +116,8 @@ let bookList: object[] = [
         zhanr: "روانشناسی",
         author: "برایان تریسی",
         makeYear: 1380,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
-        price: 150_000
+        imgSrc: "/public/bookimg/default.jpg",
+        price: 340_000
     },
     {
         id: 0,
@@ -131,8 +125,17 @@ let bookList: object[] = [
         zhanr: "روانشناسی",
         author: "برایان تریسی",
         makeYear: 1380,
-        imgSrc: "/public/bookimg/eNAMAD.jpeg",
-        price: 150_000
+        imgSrc: "/public/bookimg/default.jpg",
+        price: 180_000
+    },
+    {
+        id: 0,
+        name: "عادت های اتمی",
+        zhanr: "روانشناسی",
+        author: "برایان تریسی",
+        makeYear: 1380,
+        imgSrc: "/public/bookimg/default.jpg",
+        price: 200_000
     },
 
 ]
@@ -151,7 +154,7 @@ function eventListeners() {
             filterBooks(tab.getAttribute("value"))
         })
     })
-    
+
 }
 
 eventListeners()
@@ -167,10 +170,12 @@ function init() {
     else setDataToLs("bookList", JSON.stringify(bookList))
     //show new book
     showBestBook()
-
+    let cartLs = getDataFromLs("cartBook")
     let favLs = getDataFromLs("favBook")
     if (favLs != null) { favBook = JSON.parse(favLs) }
     else if (favLs == null) { setDataToLs("favBook", JSON.stringify(favBook)) }
+    if (cartLs != null) { cartBook = JSON.parse(favLs) }
+    else if (favLs == null) { setDataToLs("cartBook", JSON.stringify(cartBook)) }
     filterBooks(zhanrFilter?.getAttribute("value"))
     updateFavLength()
     updateCartLength()
@@ -179,12 +184,12 @@ function getBookId() {
     for (let index = 0; index < bookList.length; index++) {
         let book = bookList[index];
         book.id = index + 1
-        
+
     }
 }
 //show best book when document is loading
 function showBestBook() {
-    let bestBook : object[] = []
+    let bestBook: object[] = []
     let l: number
     //check book length
     if (bookList.length > 18) l = 18
@@ -197,8 +202,8 @@ function showBestBook() {
     }
     for (let index = 0; index < bestBook.length; index++) {
         const book = bestBook[index];
-        let template : HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        let template2 : HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        let template: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        let template2: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
         productAnimation1.append(template)
         productAnimation2.append(template2);
     }
@@ -206,7 +211,7 @@ function showBestBook() {
 
 //find book from zhanr
 function filterBooks(e: string) {
-    
+
     let newBook: object[] = []
     let filter: object[] = []
 
@@ -238,13 +243,47 @@ function filterBooks(e: string) {
         h1.innerText = "درحال حاضر کتاب جدیدی در این ژانر نداریم"
         newProducts?.append(h1)
     }
+    let justBook = true
+    let favb = false
+    let cartb = false
+    let cartAndfavb = false
     filter.forEach((book) => {
         let template: HTMLElement
-        template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
 
+        favBook.forEach(favbook => {
+            if (book.id == favbook.id && book.name == favbook.name) {
+                favb = true
+            }
+        })
+        cartBook.forEach(cartbook => {
+            if (book.id == cartbook.id && book.name == cartbook.name) {
+                cartb = true
+            }
+        })
+
+
+        if (cartb && favb) {
+            template = showFavAndCartBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        }
+
+        else if (cartb) {
+            template = showCartBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        }
+        else if (favb) {
+            template = showFavBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+
+        }
+        else {
+            template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        }
 
         newProducts?.append(template)
+        cartb = false
+        favb = false
     })
+
+    let removeToFav = document.querySelectorAll(".removeToFav")
+    let removeToCart = document.querySelectorAll("removeToCart")
     let addToFav = document.querySelectorAll(".addToFav")
     let addToCart = document.querySelectorAll(".addToCart")
     let trash = document.querySelectorAll(".trash")
@@ -273,13 +312,25 @@ function filterBooks(e: string) {
     addToCart.forEach((btn) => {
         btn.addEventListener("click", () => {
 
-
             addBookToCart(btn.parentElement?.parentElement)
 
+
+        })
+    })
+    removeToCart.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            removeBookFromCart(btn.parentElement?.parentElement)
+            filterBooks(zhanrFilter?.getAttribute("value"))
+        })
+    })
+    removeToFav.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            removeBookFromFav(btn.parentElement?.parentElement)
+            filterBooks(zhanrFilter?.getAttribute("value"))
 
         })
     })
 }
 
 
-export {getBookId}
+export { getBookId }

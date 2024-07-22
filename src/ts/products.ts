@@ -1,3 +1,4 @@
+import { addNewBook } from "./addNewBook"
 import { addBookToCart } from "./addToCart"
 import { addBookToFav } from "./addToFav"
 import { editBook } from "./editBook"
@@ -122,9 +123,10 @@ function filterSearchBook() {
         let books = document.querySelectorAll(".books");
         books.forEach((book, index) => {
             if (
-                book.children[1].children[0].innerText
-                    .toUpperCase()
-                    .includes(userBookSearch.toUpperCase())
+                book.children[1].children[0].innerText.toUpperCase().includes(userBookSearch.toUpperCase()) ||
+                book.children[1].children[1].innerText.toUpperCase().includes(userBookSearch.toUpperCase()) ||
+                book.children[2].children[1].innerText.toUpperCase().includes(userBookSearch) ||
+                book.children[2].children[2].innerText.toUpperCase().includes(userBookSearch.toUpperCase())
             ) {
                 book.style.display = "flex";
             } else {
@@ -149,7 +151,9 @@ function addNewBookToList() {
             closeOnClick: true,
             id: "confirm"
         },
-        cancelButton: {},
+        cancelButton: {
+            text: "لغو"
+        },
         input: [
             {
                 label: "عکس کتاب",
@@ -201,13 +205,13 @@ function addNewBookToList() {
     let url: any;
 
     let book = {
-        name : "",
-        id : 0,
-        author : "",
-        makeYear : "",
-        zhanr : "",
-        price : 0,
-        imgSrc : ""
+        name: "",
+        id: 0,
+        author: "",
+        makeYear: "",
+        zhanr: "",
+        price: 0,
+        imgSrc: ""
     }
     newBookSrc?.addEventListener("change", () => {
 
@@ -231,7 +235,40 @@ function addNewBookToList() {
         book.price = newBookPrice.value;
         book.id = bookList.length + 1
         bookList.push(book)
-        setDataToLs("bookList",JSON.stringify(bookList))
-        location.reload()
+        setDataToLs("bookList", JSON.stringify(bookList))
+        product.innerHTML = ""
+        bookList.forEach(booke => {
+
+            let tmp = showNewBook(booke.id, booke.name, booke.zhanr, booke.author, booke.makeYear, booke.imgSrc, booke.price)
+            product?.append(tmp)
+        })
+
+        let addToFav = document.querySelectorAll(".addToFav")
+
+        let addToCart = document.querySelectorAll(".addToCart")
+        console.log(addToCart);
+        let trash = document.querySelectorAll(".trash")
+        let edit = document.querySelectorAll(".edit")
+        edit.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                editBook(btn.parentElement?.parentElement);
+            })
+        })
+        trash.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                trashBook(btn.parentElement?.parentElement);
+            })
+        })
+        addToFav.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                addBookToFav(btn.parentElement?.parentElement);
+            })
+        })
+        addToCart.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                addBookToCart(btn.parentElement?.parentElement)
+            })
+        })
+
     })
 }

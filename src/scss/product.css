@@ -5,6 +5,20 @@
   height: 32px;
 }
 
+#newBook {
+  margin-top: 50px;
+  border: 2px solid rgb(125, 0, 179);
+  font-size: 13px;
+  padding: 5px;
+  border-radius: 4px;
+  transition: 0.3s;
+  background-color: #fff;
+}
+#newBook:hover {
+  background-color: rgb(125, 0, 179);
+  color: #fff;
+}
+
 .products-list {
   display: flex;
   flex-wrap: wrap;
@@ -19,7 +33,7 @@
   border: 1px solid rgb(189, 189, 189);
   margin-top: 7px;
   height: 510px;
-  width: 250px;
+  width: 19.2%;
   display: flex;
   flex-direction: column;
   background-color: #fff;

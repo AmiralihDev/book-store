@@ -30,15 +30,15 @@ header {
   top: 0;
   background-color: #ffffff;
 }
-header div:first-child {
+header div:last-child {
   border: 1px solid gray;
   padding: 3px 18px;
   border-radius: 7px;
 }
-header div:first-child * {
+header div:last-child * {
   display: inline-block;
 }
-header div:first-child input {
+header div:last-child input {
   margin-left: 10px;
   height: 40px;
   width: 300px;
@@ -47,7 +47,7 @@ header div:first-child input {
   border: none;
 }
 header div:nth-child(2) {
-  margin-left: 175px;
+  margin-right: 130px;
   width: 35%;
   display: flex;
   justify-content: space-between;
@@ -62,7 +62,7 @@ header div:nth-child(2) div {
   top: 10px;
   left: -10px;
 }
-header div:last-child * {
+header div:first-child * {
   display: inline-block;
 }
 header h1 {
@@ -113,8 +113,8 @@ footer a {
 }
 
 .hiddenEl {
-  transition: all 1s;
-  filter: blur(5px);
+  transition: all 1.5s;
+  filter: blur(10px);
   transform: translateX(100%);
 }
 

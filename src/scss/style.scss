@@ -27,6 +27,12 @@ $perple: rgb(125, 0, 179);
   display: flex;
   justify-content: space-between;
   animation: 28s slide infinite linear;
+  .books {
+    width: 250px;
+  }
+  &:hover{
+    animation-play-state: paused;
+  }
 }
 .products-animation {
   padding: 15px;
@@ -34,8 +40,13 @@ $perple: rgb(125, 0, 179);
   overflow: hidden;
   width: 100%;
 }
+.tabsBtn{
+  display: flex;
+  justify-content: space-between;
+}
 .bestBook {
   margin: 50px 0;
+  font-size: 30px;
 }
 @keyframes slide {
   0% {

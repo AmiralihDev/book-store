@@ -27,6 +27,12 @@
   justify-content: space-between;
   animation: 28s slide infinite linear;
 }
+.animationItem .books {
+  width: 250px;
+}
+.animationItem:hover {
+  animation-play-state: paused;
+}
 
 .products-animation {
   padding: 15px;
@@ -35,8 +41,14 @@
   width: 100%;
 }
 
+.tabsBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
 .bestBook {
   margin: 50px 0;
+  font-size: 30px;
 }
 
 @keyframes slide {

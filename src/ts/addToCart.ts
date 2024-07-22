@@ -7,9 +7,11 @@ import { validationIsBook } from "./validationIsBook"
 let cartBook = getDataFromLs("cartBook")
 if (cartBook == null){setDataToLs("cartBook",JSON.stringify([]))}
 else {cartBook = JSON.parse(cartBook)}
-let bookList = JSON.parse(getDataFromLs("bookList"))
 
 function addBookToCart(e: object) {
+    let bookList = JSON.parse(getDataFromLs("bookList"))
+
+
     let imgSrc = e.children[0].src
     let bookNum = e.children[1].children[1].innerText
     let bookName = e.children[1].children[0].innerText
@@ -26,8 +28,7 @@ function addBookToCart(e: object) {
         makeYear: makeNum,
         imgSrc
     }
-
-    bookList.forEach((book) => {
+    bookList.forEach((book : object) => {
 
         if (`شماره کتاب : ${book.id}` == bookNum &&
             book.name == bookName &&
@@ -36,6 +37,7 @@ function addBookToCart(e: object) {
             `سال انتشار : ${book.makeYear}` == makeNum &&
             `قیمت کتاب : ${book.price.toLocaleString()}` == price
         ) {
+
             let find = findCartBook(book)
 
             if (validationIsBook("cart",book)) {
@@ -43,7 +45,7 @@ function addBookToCart(e: object) {
                 setDataToLs("cartBook", JSON.stringify(cartBook))
                 updateCartLength()
             }else{
-                
+
             }
 
 
@@ -54,7 +56,7 @@ function addBookToCart(e: object) {
 
 function findCartBook(e: object) {
     let f = false
-    cartBook.forEach((book) => {
+    cartBook.forEach((book : object) => {
         if (book == e) {
 
             f = true

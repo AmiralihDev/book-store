@@ -27,13 +27,7 @@ header {
   position: sticky;
   top: 0;
   background-color: #ffffff;
-  // #resultFilter{
-  //   right: 100px;
-  //   position: absolute;
-  //   top: 80px;
-  //   background: #000;
-  // }
-  div:first-child {
+  div:last-child {
     border: 1px solid gray;
     padding: 3px 18px;
     border-radius: 7px;
@@ -50,7 +44,7 @@ header {
     }
   }
   div:nth-child(2) {
-    margin-left: 175px;
+    margin-right: 130px;
     width: 35%;
     div {
       width: 20px;
@@ -65,7 +59,7 @@ header {
     display: flex;
     justify-content: space-between;
   }
-  div:last-child {
+  div:first-child {
     * {
       display: inline-block;
     }
@@ -118,13 +112,14 @@ footer {
   }
 }
 
-.hiddenEl{
+.hiddenEl {
   // opacity: 0;
-  transition: all 1s;
-  filter: blur(5px);
+  transition: all 1.5s;
+  
+  filter: blur(10px);
   transform: translateX(100%);
 }
-.show{
+.show {
   opacity: 1;
   filter: blur(0);
   transform: translateX(0);

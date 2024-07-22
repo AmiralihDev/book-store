@@ -5,9 +5,9 @@ import { validationIsBook } from "./validationIsBook"
 
 
 let favBook = JSON.parse(getDataFromLs("favBook"))
-let bookList = JSON.parse(getDataFromLs("bookList"))
 
 function addBookToFav(e: object) {
+    let bookList = JSON.parse(getDataFromLs("bookList"))
     let imgSrc = e.children[0].src
     let bookNum = e.children[1].children[1].innerText
     let bookName = e.children[1].children[0].innerText
