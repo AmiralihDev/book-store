@@ -16,7 +16,7 @@ import { writeTxt } from "./writeTxt";
 //selector
 let newProducts = document.querySelector(".products-list")
 let zhanrFilter = document.querySelector(".active-tab")
-let productAnimation1 = document.querySelector("#animationItem1")
+let productAnimation1 = document.querySelector(".swiper-wrapper")
 let productAnimation2 = document.querySelector("#animationItem2")
 let productsList = document.querySelector(".products-list")
 
@@ -179,6 +179,18 @@ function init() {
     filterBooks(zhanrFilter?.getAttribute("value"))
     updateFavLength()
     updateCartLength()
+    let swiper = new Swiper(".mySwiper", {
+        slidesPerView: 5,
+        spaceBetween: 20,
+        autoplay: {
+          delay: 1200,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      })
 }
 function getBookId() {
     for (let index = 0; index < bookList.length; index++) {
@@ -204,8 +216,12 @@ function showBestBook() {
         const book = bestBook[index];
         let template: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
         let template2: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        productAnimation1.append(template)
-        productAnimation2.append(template2);
+        // let slider = document.createElement("div")
+        // slider.classList.add("swiper-slider")
+        // slider.append(template)
+        // productAnimation1?.append(slider)
+        template.classList.add("swiper-slide")
+        productAnimation1?.append(template)
     }
 }
 

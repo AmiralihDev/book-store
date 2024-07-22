@@ -21,24 +21,21 @@
   font-size: 28px;
 }
 
-.animationItem {
-  white-space: nowrap;
-  display: flex;
-  justify-content: space-between;
-  animation: 28s slide infinite linear;
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
-.animationItem .books {
-  width: 250px;
-}
-.animationItem:hover {
-  animation-play-state: paused;
+
+.swiper-pagination {
+  margin-top: 90px;
 }
 
 .products-animation {
   padding: 15px;
   display: flex;
-  overflow: hidden;
   width: 100%;
+  height: 510px;
 }
 
 .tabsBtn {

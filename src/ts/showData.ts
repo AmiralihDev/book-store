@@ -391,7 +391,6 @@ function showFavAndCartBook(id: number, name: string, zhanr: string, author: str
     let template = domGenerator({
         tag: "div",
         attributes: {
-            class: "books"
         },
         children: [
             {

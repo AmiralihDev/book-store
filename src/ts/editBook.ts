@@ -1,5 +1,6 @@
 import { getDataFromLs } from "./getDataFromLs"
 import { setDataToLs } from "./setDataToLs"
+import { showNewBook } from "./showData"
 import { silverBox } from "./silverBox"
 import { createClient } from '@supabase/supabase-js'
 
@@ -59,18 +60,12 @@ function editBook(e: object) {
                     if (url) {
 
                         book.imgSrc = url.toString()
-                        imgSrc = url.toString()
+
                     }
                 })
 
             })
             confirm?.addEventListener("click", () => {
-
-                book.name = newBookName.value
-                book.zhanr = newBookZhanr.value
-                book.author = newBookAuthor.value
-                book.price = parseInt(newBookPrice.value)
-                book.makeYear = parseInt(newBookYear.value)
 
                 bookName = newBookName.value
                 zhanr = newBookZhanr.value
@@ -78,6 +73,15 @@ function editBook(e: object) {
                 price = newBookPrice.value
                 makeNum = newBookYear.value
                 setDataToLs("bookList", JSON.stringify(bookList))
+                let parent = e.parentElement
+                parent.innerHTML = ""
+                for (const key of bookList) {
+
+                    parent.append(
+
+                        showNewBook(key.id, key.name, key.zhanr, key.author, key.makeYear, key.imgSrc, key.price)
+                    )
+                }
                 for (let index = 0; index < favBook.length; index++) {
                     const favbook = favBook[index];
 
