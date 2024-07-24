@@ -2,7 +2,6 @@
 
 import { addBookToCart } from "./addToCart"
 import { addBookToFav } from "./addToFav"
-import { removeBookFromCart } from "./cart"
 import { removeBookFromFav } from "./fav"
 import { updateCartLength, updateFavLength } from "./updateLength"
 import "../scss/silverBox.css"

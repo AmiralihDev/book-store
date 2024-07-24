@@ -77,10 +77,18 @@ function editBook(e: object) {
                 parent.innerHTML = ""
                 for (const key of bookList) {
 
-                    parent.append(
 
-                        showNewBook(key.id, key.name, key.zhanr, key.author, key.makeYear, key.imgSrc, key.price)
-                    )
+                    let template: any
+
+                    template = showNewBook(key.id, key.name, key.zhanr, key.author, key.makeYear, key.imgSrc, key.price)
+                    if (parent.classList == "swiper-wrapper") {
+
+                        template.classList.add("swiper-slide")
+
+                    } else {
+                    
+                    }
+                    parent.append(template)
                 }
                 for (let index = 0; index < favBook.length; index++) {
                     const favbook = favBook[index];
