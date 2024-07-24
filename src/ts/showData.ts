@@ -237,6 +237,34 @@ function showFavBook(id: number, name: string, zhanr: string, author: string, ma
             {
                 tag: "div",
                 attributes: {
+                    class: "amaliatBtn"
+                },
+                children: [
+                    {
+                        tag: "button",
+                        properties: {
+                            innerText: "ویرایش کتاب"
+                        },
+                        attributes: {
+                            type: "button",
+                            class: "edit"
+                        }
+                    },
+                    {
+                        tag: "button",
+                        properties: {
+                            innerText: "حذف کتاب"
+                        },
+                        attributes: {
+                            type: "button",
+                            class: "trash"
+                        }
+                    }
+                ]
+            },
+            {
+                tag: "div",
+                attributes: {
                     class: "bookBtn"
                 },
                 children: [
@@ -351,6 +379,34 @@ function showCartBook(id: number, name: string, zhanr: string, author: string, m
                             innerText: `قیمت کتاب : ${price.toLocaleString()}`
                         }
                     },
+                ]
+            },
+            {
+                tag: "div",
+                attributes: {
+                    class: "amaliatBtn"
+                },
+                children: [
+                    {
+                        tag: "button",
+                        properties: {
+                            innerText: "ویرایش کتاب"
+                        },
+                        attributes: {
+                            type: "button",
+                            class: "edit"
+                        }
+                    },
+                    {
+                        tag: "button",
+                        properties: {
+                            innerText: "حذف کتاب"
+                        },
+                        attributes: {
+                            type: "button",
+                            class: "trash"
+                        }
+                    }
                 ]
             },
             {

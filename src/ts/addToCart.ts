@@ -1,7 +1,9 @@
+import domGenerator from "dom-generator"
 import { getDataFromLs } from "./getDataFromLs"
 import { setDataToLs } from "./setDataToLs"
 import { updateCartLength, updateFavLength } from "./updateLength"
 import { validationIsBook } from "./validationIsBook"
+import { removeBookFromCart } from "./removeFromCart"
 
 
 let cartBook = getDataFromLs("cartBook")
@@ -43,7 +45,35 @@ function addBookToCart(e: object) {
             if (validationIsBook("cart",book)) {
                 cartBook.push(book)
                 setDataToLs("cartBook", JSON.stringify(cartBook))
+                cartBook = []
                 updateCartLength()
+
+                console.log(e.children[4].children[0]);
+                let btn = e.children[4].children[0]
+               
+                let deleteBook = domGenerator({
+                    tag : "button",
+                    properties : {innerText : "حذف از سبد خرید" },
+                    eventListeners : {click : (e) => {
+                        removeBookFromCart(e.target.parentElement.parentElement)
+
+                        let b = domGenerator({
+                            tag : "button",
+                            properties : {innerText : "افزودن به سبد خرید"},
+                            eventListeners : {click : (ev) => {
+
+                                addBookToCart(ev.target.parentElement.parentElement)
+                                
+                                b.replaceWith(deleteBook)
+                            }}
+                        })
+
+
+                        deleteBook.replaceWith(b)
+                    }}
+                })
+
+                btn.replaceWith(deleteBook)
             }else{
 
             }

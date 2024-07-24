@@ -1,7 +1,10 @@
+import domGenerator from "dom-generator"
 import { getDataFromLs } from "./getDataFromLs"
 import { setDataToLs } from "./setDataToLs"
 import { updateFavLength } from "./updateLength"
 import { validationIsBook } from "./validationIsBook"
+import { removeBookFromFav } from "./removeFromCart"
+import { addBookToCart } from "./addToCart"
 
 
 let favBook = JSON.parse(getDataFromLs("favBook"))
@@ -41,7 +44,35 @@ function addBookToFav(e: object) {
 
                 favBook.push(book)
                 setDataToLs("favBook", JSON.stringify(favBook))
+                favBook = []
                 updateFavLength()
+
+                console.log(e.children[4].children[1]);
+                let btn = e.children[4].children[1]
+                
+                let deleteBook = domGenerator({
+                    tag : "button",
+                    properties : {innerText : "حذف علاقه مندی" },
+                    eventListeners : {click : (e) => {
+                        removeBookFromFav(e.target.parentElement.parentElement)
+
+                        let b = domGenerator({
+                            tag : "button",
+                            properties : {innerText : "علاقه مندی ها"},
+                            eventListeners : {click : (ev) => {
+
+                                addBookToFav(ev.target.parentElement.parentElement)
+                                
+                                b.replaceWith(deleteBook)
+                            }}
+                        })
+
+
+                        deleteBook.replaceWith(b)
+                    }}
+                })
+
+                btn.replaceWith(deleteBook)
             } else {
 
 

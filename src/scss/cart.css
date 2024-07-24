@@ -36,4 +36,9 @@
 #showResult div a button:hover {
   background-color: rgb(125, 0, 179);
   color: #fff;
+}
+
+.books div:nth-child(4) {
+  display: none;
+  background: #000;
 }/*# sourceMappingURL=cart.css.map */
