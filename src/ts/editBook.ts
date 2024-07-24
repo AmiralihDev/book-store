@@ -1,16 +1,20 @@
+// import modules
+
 import { getDataFromLs } from "./getDataFromLs"
 import { setDataToLs } from "./setDataToLs"
 import { showNewBook } from "./showData"
 import { silverBox } from "./silverBox"
-import { createClient } from '@supabase/supabase-js'
 
 
 
+// edit book
 function editBook(e: object) {
+    // get books list
     let cartBook = JSON.parse(getDataFromLs("cartBook"))
     let favBook = JSON.parse(getDataFromLs("favBook"))
     let bookList = JSON.parse(getDataFromLs("bookList"))
 
+    // get book body
     let imgSrc = e.children[0].src
     let bookNum = e.children[1].children[1].innerText
     let bookName = e.children[1].children[0].innerText
@@ -19,17 +23,7 @@ function editBook(e: object) {
     let makeNum = e.children[2].children[2].innerText
     let price = e.children[2].children[3].innerText
 
-    let obj = {
-        id: bookNum,
-        name: bookName,
-        zhanr,
-        author,
-        makeYear: makeNum,
-        imgSrc
-    }
-
-
-
+    // valid : is book ?
     for (let index = 0; index < bookList.length; index++) {
         const book = bookList[index];
 
@@ -41,8 +35,10 @@ function editBook(e: object) {
             `سال انتشار : ${book.makeYear}` == makeNum &&
             `قیمت کتاب : ${book.price.toLocaleString()}` == price
         ) {
+            // show modal
+            getNewData(book.name, book.zhanr, book.author, book.makeYear, book.price)
 
-            let newBook = getNewData(book.name, book.zhanr, book.author, book.makeYear, book.price)
+            // get modal elements
             let confirm = document.getElementById("confirm")
             let newBookSrc = document.getElementById("newBookSrc")
             let newBookName = document.getElementById("newBookName")
@@ -52,7 +48,7 @@ function editBook(e: object) {
             let newBookAuthor = document.getElementById("newBookAuthor")
             let url: any;
             newBookSrc?.addEventListener("change", () => {
-
+                // get img url and save thats
                 let fr = new FileReader()
                 fr.readAsDataURL(newBookSrc.files[0])
                 fr.addEventListener("load", () => {
@@ -67,33 +63,45 @@ function editBook(e: object) {
             })
             confirm?.addEventListener("click", () => {
 
+                // change book value
                 book.name = newBookName.value
                 book.zhanr = newBookZhanr.value
                 book.author = newBookAuthor.value
                 book.price = newBookPrice.value
                 book.makeYear = newBookYear.value
+
+                // set book list to ls
                 setDataToLs("bookList", JSON.stringify(bookList))
                 let parent = e.parentElement
+                // empty container
                 parent.innerHTML = ""
+
+                // create books
                 for (const key of bookList) {
 
 
                     let template: any
 
                     template = showNewBook(key.id, key.name, key.zhanr, key.author, key.makeYear, key.imgSrc, key.price)
+                    // check is book in slider (index.html) ?
                     if (parent.classList == "swiper-wrapper") {
-
+                        // add slider class to template
                         template.classList.add("swiper-slide")
 
                     } else {
 
                     }
+                    // append to client
                     parent.append(template)
                 }
+
+                // amaliat buttons events
                 let editBooks = document.querySelectorAll(".edit")
                 editBooks.forEach(btn => btn.addEventListener("click", () => {
                     editBook(btn.parentElement?.parentElement)
                 }))
+                // valid : is this book in other lists 
+                // change book value too
                 for (let index = 0; index < favBook.length; index++) {
                     const favbook = favBook[index];
 
@@ -152,6 +160,8 @@ function editBook(e: object) {
 
 }
 
+
+// create new modal
 function getNewData(bookName: string, zhanr: string, author: string, makeYear: string, price: string) {
     silverBox({
         title: {

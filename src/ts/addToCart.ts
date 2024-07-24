@@ -1,3 +1,5 @@
+// import modules
+
 import domGenerator from "dom-generator"
 import { getDataFromLs } from "./getDataFromLs"
 import { setDataToLs } from "./setDataToLs"
@@ -5,15 +7,17 @@ import { updateCartLength, updateFavLength } from "./updateLength"
 import { validationIsBook } from "./validationIsBook"
 import { removeBookFromCart } from "./removeFromCart"
 
-
+// get cart list
 let cartBook = getDataFromLs("cartBook")
-if (cartBook == null){setDataToLs("cartBook",JSON.stringify([]))}
-else {cartBook = JSON.parse(cartBook)}
+if (cartBook == null) { setDataToLs("cartBook", JSON.stringify([])) }
+else { cartBook = JSON.parse(cartBook) }
 
+
+// valid and add to cart list
 function addBookToCart(e: object) {
     let bookList = JSON.parse(getDataFromLs("bookList"))
 
-
+    //get body request 
     let imgSrc = e.children[0].src
     let bookNum = e.children[1].children[1].innerText
     let bookName = e.children[1].children[0].innerText
@@ -22,15 +26,8 @@ function addBookToCart(e: object) {
     let makeNum = e.children[2].children[2].innerText
     let price = e.children[2].children[3].innerText
 
-    let obj = {
-        id: bookNum,
-        name: bookName,
-        zhanr,
-        author,
-        makeYear: makeNum,
-        imgSrc
-    }
-    bookList.forEach((book : object) => {
+    //valid : is book ?
+    bookList.forEach((book: object) => {
 
         if (`شماره کتاب : ${book.id}` == bookNum &&
             book.name == bookName &&
@@ -40,41 +37,52 @@ function addBookToCart(e: object) {
             `قیمت کتاب : ${book.price.toLocaleString()}` == price
         ) {
 
-            let find = findCartBook(book)
+            // valid if book request is not in cart list
+            if (validationIsBook("cart", book)) {
 
-            if (validationIsBook("cart",book)) {
+                // add book to array
                 cartBook.push(book)
+                // set new cart list to ls
                 setDataToLs("cartBook", JSON.stringify(cartBook))
                 cartBook = []
+
+                // update header hint text
                 updateCartLength()
 
-                console.log(e.children[4].children[0]);
+                // get button book requet
                 let btn = e.children[4].children[0]
-               
+
+                // create delete button
                 let deleteBook = domGenerator({
-                    tag : "button",
-                    properties : {innerText : "حذف از سبد خرید" },
-                    eventListeners : {click : (e) => {
-                        removeBookFromCart(e.target.parentElement.parentElement)
+                    tag: "button",
+                    properties: { innerText: "حذف از سبد خرید" },
+                    eventListeners: {
+                        click: (e) => {
+                            // send request to remove book from cart
+                            removeBookFromCart(e.target.parentElement.parentElement)
 
-                        let b = domGenerator({
-                            tag : "button",
-                            properties : {innerText : "افزودن به سبد خرید"},
-                            eventListeners : {click : (ev) => {
+                            let b = domGenerator({
+                                tag: "button",
+                                properties: { innerText: "افزودن به سبد خرید" },
+                                eventListeners: {
+                                    click: (ev) => {
+                                        // send request to add book to cart list
+                                        addBookToCart(ev.target.parentElement.parentElement)
+                                        // replaces buttons
+                                        b.replaceWith(deleteBook)
+                                    }
+                                }
+                            })
 
-                                addBookToCart(ev.target.parentElement.parentElement)
-                                
-                                b.replaceWith(deleteBook)
-                            }}
-                        })
-
-
-                        deleteBook.replaceWith(b)
-                    }}
+                            // replace buttons
+                            deleteBook.replaceWith(b)
+                        }
+                    }
                 })
+                // replace buttons
 
                 btn.replaceWith(deleteBook)
-            }else{
+            } else {
 
             }
 
@@ -84,19 +92,5 @@ function addBookToCart(e: object) {
 
 }
 
-function findCartBook(e: object) {
-    let f = false
-    cartBook.forEach((book : object) => {
-        if (book == e) {
-
-            f = true
-
-        }
-
-    })
-    return f
-}
-
-
-
-export {addBookToCart}
+// export add to cart function
+export { addBookToCart }
