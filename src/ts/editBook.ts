@@ -67,11 +67,11 @@ function editBook(e: object) {
             })
             confirm?.addEventListener("click", () => {
 
-                bookName = newBookName.value
-                zhanr = newBookZhanr.value
-                author = newBookAuthor.value
-                price = newBookPrice.value
-                makeNum = newBookYear.value
+                book.name = newBookName.value
+                book.zhanr = newBookZhanr.value
+                book.author = newBookAuthor.value
+                book.price = newBookPrice.value
+                book.makeYear = newBookYear.value
                 setDataToLs("bookList", JSON.stringify(bookList))
                 let parent = e.parentElement
                 parent.innerHTML = ""
@@ -86,10 +86,14 @@ function editBook(e: object) {
                         template.classList.add("swiper-slide")
 
                     } else {
-                    
+
                     }
                     parent.append(template)
                 }
+                let editBooks = document.querySelectorAll(".edit")
+                editBooks.forEach(btn => btn.addEventListener("click", () => {
+                    editBook(btn.parentElement?.parentElement)
+                }))
                 for (let index = 0; index < favBook.length; index++) {
                     const favbook = favBook[index];
 
