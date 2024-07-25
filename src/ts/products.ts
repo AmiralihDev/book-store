@@ -67,7 +67,7 @@ function filterBooks(e: string) {
         product?.append(h1)
     }
     // show all book
-    let filter2 = filter.reverse()
+    let filter2 = filter
     filter2.forEach((book) => {
         let template: HTMLElement
         template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
@@ -261,7 +261,6 @@ function addNewBookToList() {
         // amaliat buttons events
         let addToFav = document.querySelectorAll(".addToFav")
         let addToCart = document.querySelectorAll(".addToCart")
-        console.log(addToCart);
         let trash = document.querySelectorAll(".trash")
         let edit = document.querySelectorAll(".edit")
         edit.forEach((btn) => {

@@ -234,7 +234,7 @@ function filterBooks(e: string) {
     if (bookList.length > 40) l = 40
     else l = bookList.length
 
-    let bookL2 = bookList.reverse()
+    let bookL2 = bookList
     for (let index = 0; index < l; index++) {
         const book = bookL2[index];
         //add book to newbook list
