@@ -1,3 +1,5 @@
+// import modules
+
 import { addBookToCart } from "./addToCart";
 import { addBookToFav } from "./addToFav";
 import { editBook } from "./editBook";
@@ -216,10 +218,6 @@ function showBestBook() {
         const book = bestBook[index];
         let template: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
         let template2: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        // let slider = document.createElement("div")
-        // slider.classList.add("swiper-slider")
-        // slider.append(template)
-        // productAnimation1?.append(slider)
         template.classList.add("swiper-slide")
         productAnimation1?.append(template)
     }
@@ -242,6 +240,7 @@ function filterBooks(e: string) {
         //add book to newbook list
         newBook.push(book);
     }
+    // check filter
     if (e == "همه") {
         filter = newBook
     } else {
@@ -265,6 +264,7 @@ function filterBooks(e: string) {
     let favb = false
     let cartb = false
     let cartAndfavb = false
+    // check is fav book? cart book ? or fav and cart book ?
     filter.forEach((book) => {
         let template: HTMLElement
 
@@ -299,7 +299,7 @@ function filterBooks(e: string) {
         cartb = false
         favb = false
     })
-
+    // amaliat buttons events
     let removeToFav = document.querySelectorAll(".removeToFav")
     let removeToCart = document.querySelectorAll("removeToCart")
     let addToFav = document.querySelectorAll(".addToFav")

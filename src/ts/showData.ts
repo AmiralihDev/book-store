@@ -1,5 +1,5 @@
 import domGenerator from "dom-generator"
-
+// all books templates
 function showNewBook(id: number, name: string, zhanr: string, author: string, makeYear: number, imgSrc: string, price: number): HTMLElement {
     let template = domGenerator({
         tag: "div",
