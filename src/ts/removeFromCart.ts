@@ -27,6 +27,7 @@ function removeBookFromCart(e: object) {
             `قیمت کتاب : ${book.price.toLocaleString()}` == price
         ) {
             
+            cartBook = JSON.parse(getDataFromLs("cartBook"))
             cartBook.splice(book.index, 1)
             setDataToLs("cartBook", JSON.stringify(cartBook))
 
@@ -56,7 +57,8 @@ function removeBookFromFav(e: object) {
             `قیمت کتاب : ${book.price.toLocaleString()}` == price
         ) {
 
-            console.log(favBook);
+            favBook = JSON.parse(getDataFromLs("favBook"))
+
             favBook.splice(book.index, 1)
 
             setDataToLs("favBook", JSON.stringify(favBook))

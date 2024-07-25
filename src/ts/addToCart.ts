@@ -41,10 +41,11 @@ function addBookToCart(e: object) {
             if (validationIsBook("cart", book)) {
 
                 // add book to array
+                cartBook = JSON.parse(getDataFromLs("cartBook"))
                 cartBook.push(book)
                 // set new cart list to ls
                 setDataToLs("cartBook", JSON.stringify(cartBook))
-                cartBook = []
+
 
                 // update header hint text
                 updateCartLength()
@@ -56,6 +57,7 @@ function addBookToCart(e: object) {
                 let deleteBook = domGenerator({
                     tag: "button",
                     properties: { innerText: "حذف از سبد خرید" },
+                    attributes: { class: "removeToCart" },
                     eventListeners: {
                         click: (e) => {
                             // send request to remove book from cart
@@ -64,6 +66,7 @@ function addBookToCart(e: object) {
                             let b = domGenerator({
                                 tag: "button",
                                 properties: { innerText: "افزودن به سبد خرید" },
+                                attributes: { class: "addToCart" },
                                 eventListeners: {
                                     click: (ev) => {
                                         // send request to add book to cart list

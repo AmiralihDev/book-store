@@ -61,7 +61,8 @@ function filterBooks(e: string) {
         h1.innerText = "درحال حاضر کتابی در این ژانر نداریم"
         product?.append(h1)
     }
-    filter.forEach((book) => {
+    let filter2 = filter.reverse()
+    filter2.forEach((book) => {
         let template: HTMLElement
         template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
 

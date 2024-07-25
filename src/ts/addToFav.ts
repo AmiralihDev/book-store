@@ -43,11 +43,13 @@ function addBookToFav(e: object) {
             // valid is it in fav book list
             if (validationIsBook("fav", book)) {
                 // add book to fav book list
+                favBook = JSON.parse(getDataFromLs("favBook"))
+
                 favBook.push(book)
 
                 // set new fav book list
                 setDataToLs("favBook", JSON.stringify(favBook))
-                favBook = []
+
 
                 // update header fav hint text
                 updateFavLength()
@@ -60,6 +62,7 @@ function addBookToFav(e: object) {
                 let deleteBook = domGenerator({
                     tag: "button",
                     properties: { innerText: "حذف علاقه مندی" },
+                    attributes: { class: "removeToFav" },
                     eventListeners: {
                         click: (e) => {
                             // send request to remove book from fav list
@@ -69,6 +72,7 @@ function addBookToFav(e: object) {
                             let b = domGenerator({
                                 tag: "button",
                                 properties: { innerText: "علاقه مندی ها" },
+                                attributes: { class: "addToFav" },
                                 eventListeners: {
                                     click: (ev) => {
                                         // send request to add book to fav book list
@@ -79,13 +83,13 @@ function addBookToFav(e: object) {
                                 }
                             })
 
-                            
+
                             //replace buttons
                             deleteBook.replaceWith(b)
                         }
                     }
                 })
-                
+
                 //replace buttons
                 btn.replaceWith(deleteBook)
             } else {

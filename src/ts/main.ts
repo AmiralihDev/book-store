@@ -235,8 +235,10 @@ function filterBooks(e: string) {
     //check book length
     if (bookList.length > 40) l = 40
     else l = bookList.length
+
+    let bookL2 = bookList.reverse()
     for (let index = 0; index < l; index++) {
-        const book = bookList[index];
+        const book = bookL2[index];
         //add book to newbook list
         newBook.push(book);
     }

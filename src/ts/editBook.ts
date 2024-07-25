@@ -1,5 +1,7 @@
 // import modules
 
+import { addBookToCart } from "./addToCart"
+import { addBookToFav } from "./addToFav"
 import { getDataFromLs } from "./getDataFromLs"
 import { setDataToLs } from "./setDataToLs"
 import { showNewBook } from "./showData"
@@ -77,7 +79,8 @@ function editBook(e: object) {
                 parent.innerHTML = ""
 
                 // create books
-                for (const key of bookList) {
+                let book2 = bookList.reverse()
+                for (const key of book2) {
 
 
                     let template: any
@@ -100,6 +103,19 @@ function editBook(e: object) {
                 editBooks.forEach(btn => btn.addEventListener("click", () => {
                     editBook(btn.parentElement?.parentElement)
                 }))
+                let addToFav = document.querySelectorAll(".addToFav")
+                let addToCart = document.querySelectorAll(".addToCart")
+                addToFav.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        addBookToFav(btn.parentElement?.parentElement)
+                    })
+                })
+
+                addToCart.forEach(btn => {
+                    btn.addEventListener("click",() => {
+                        addBookToCart(btn.parentElement?.parentElement)
+                    })
+                })
                 // valid : is this book in other lists 
                 // change book value too
                 for (let index = 0; index < favBook.length; index++) {
