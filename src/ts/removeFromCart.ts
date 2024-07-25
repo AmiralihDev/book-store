@@ -19,18 +19,11 @@ function removeBookFromCart(e: object) {
     let price = e.children[2].children[3].innerText
 
     // check is it book ?
-    bookList.forEach((book, index) => {
-
-        if (`شماره کتاب : ${book.id}` == bookNum &&
-            book.name == bookName &&
-            `ژانر : ${book.zhanr}` == zhanr &&
-            `نویسنده : ${book.author}` == author &&
-            `سال انتشار : ${book.makeYear}` == makeNum &&
-            `قیمت کتاب : ${book.price.toLocaleString()}` == price
-        ) {
+    bookList.forEach((book:object, index) => {
+        if (`شماره کتاب : ${book.id}` == bookNum ) {
             // delete book from cart list
             cartBook = JSON.parse(getDataFromLs("cartBook"))
-            cartBook.splice(book.index, 1)
+            cartBook.splice(index, 1)
             setDataToLs("cartBook", JSON.stringify(cartBook))
 
             updateCartLength()
@@ -51,20 +44,14 @@ function removeBookFromFav(e: object) {
     let price = e.children[2].children[3].innerText
 
     // check is it any book ?
-    bookList.forEach((book, index) => {
+    bookList.forEach((book : object, index) => {
 
-        if (`شماره کتاب : ${book.id}` == bookNum &&
-            book.name == bookName &&
-            `ژانر : ${book.zhanr}` == zhanr &&
-            `نویسنده : ${book.author}` == author &&
-            `سال انتشار : ${book.makeYear}` == makeNum &&
-            `قیمت کتاب : ${book.price.toLocaleString()}` == price
-        ) {
+        if (`شماره کتاب : ${book.id}` == bookNum) {
 
             // delete book from fav list
             favBook = JSON.parse(getDataFromLs("favBook"))
 
-            favBook.splice(book.index, 1)
+            favBook.splice(index, 1)
 
             setDataToLs("favBook", JSON.stringify(favBook))
 

@@ -1,6 +1,5 @@
 // import modules
 
-import { addNewBook } from "./addNewBook"
 import { addBookToCart } from "./addToCart"
 import { addBookToFav } from "./addToFav"
 import { editBook } from "./editBook"

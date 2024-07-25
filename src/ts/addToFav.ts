@@ -24,25 +24,20 @@ function addBookToFav(e: object) {
     let author = e.children[2].children[1].innerText
     let makeNum = e.children[2].children[2].innerText
     let price = e.children[2].children[3].innerText
-
+   
     // valid : is book ?
     for (let index = 0; index < bookList.length; index++) {
         const book = bookList[index];
 
 
         // check book value
-        if (`شماره کتاب : ${book.id}` == bookNum &&
-            book.name == bookName &&
-            `ژانر : ${book.zhanr}` == zhanr &&
-            `نویسنده : ${book.author}` == author &&
-            `سال انتشار : ${book.makeYear}` == makeNum &&
-            `قیمت کتاب : ${book.price.toLocaleString()}` == price
-        ) {
+        if (`شماره کتاب : ${book.id}` == bookNum ) {
 
 
             // valid is it in fav book list
             if (validationIsBook("fav", book)) {
                 // add book to fav book list
+       
                 favBook = JSON.parse(getDataFromLs("favBook"))
 
                 favBook.push(book)

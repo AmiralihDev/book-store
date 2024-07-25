@@ -1,20 +1,24 @@
 import { getDataFromLs } from "./getDataFromLs"
 // check is book in which book list
 function validationIsBook(which: "fav" | "cart" | "book", bookItem: object) {
-    let bookList: object[] = JSON.parse(getDataFromLs("bookList"))
     let favList: object[] = JSON.parse(getDataFromLs("favBook"))
     let cartList: object[] = JSON.parse(getDataFromLs("cartBook"))
+    let bookList: object[] = JSON.parse(getDataFromLs("bookList"))
 
     let e: object[]
     // check user want
     switch (which) {
         case "cart":
+             cartList = JSON.parse(getDataFromLs("cartBook"))
             e = cartList
             break
         case "book":
+             bookList= JSON.parse(getDataFromLs("bookList"))
             e = bookList
             break
         case "fav":
+             favList = JSON.parse(getDataFromLs("favBook"))
+
             e = favList
             break
     }
@@ -34,10 +38,10 @@ function validationIsBook(which: "fav" | "cart" | "book", bookItem: object) {
             break
 
         }
-        
+
     }
     // return result
-    if (isBreak == true){
+    if (isBreak == true) {
         return false
     }
     return true
