@@ -2,66 +2,70 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سبد خرید </title>
-    <link rel="stylesheet" href="../src/scss/base.css">
-    <link rel="stylesheet" href="../src/scss/product.css">
-    <link rel="stylesheet" href="../src/scss/fav.css">
-    <link rel="stylesheet" href="../src/scss/cart.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سبد خرید </title>
+  <link rel="stylesheet" href="../src/scss/base.css">
+  <link rel="stylesheet" href="../src/scss/product.css">
+  <link rel="stylesheet" href="../src/scss/fav.css">
+  <link rel="stylesheet" href="../src/scss/cart.css">
+  <link rel="icon" href="/public/image/yakozaLogo-removebg-preview.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
 <body dir="rtl">
-    <header>
-        <div>
-          <a id="icon" href="./index.html">
-            <img src="/public/image/book.png" alt="">
-            <h1>یاکوزا</h1>
-          </a>
-        </div>
-        
-        <div>
-          <a href="/index.html">خانه</a>
-          <a href="/pages/products.html">محصولات</a>
-          <a href="/pages/fav.html">
-            <div id="favLength"></div> علاقه مندی ها
-          </a>
-          <a href="/pages/priceBox.html">
-            <div id="cartLength"></div>سبد خرید
-          </a>
-          <a href="/pages/about.html">درباره ما</a>
-        </div>
-        <div>
-    
-          <input id="search-filter" type="text" placeholder="جستجوی نام کتاب، ژانر، نویسنده و سال انتشار">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-            viewBox="0 0 16 16">
-            <path
-              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-          </svg>
-        </div>
-      </header>
-    <div id="container">
-        <div id="products">
+  <header>
+    <div>
+      <a id="icon" href="./index.html">
+        <img src="/public/image/yakozaLogo-removebg-preview.png" alt="">
+        <h1>یاکوزا</h1>
+      </a>
+    </div>
 
-        </div>
+    <div>
+      <a href="/index.html">خانه</a>
+      <a href="/pages/products.html">محصولات</a>
+      <a href="/pages/fav.html">
+        <div id="favLength"></div> علاقه مندی ها
+      </a>
+      <a href="/pages/priceBox.html">
+        <div id="cartLength"></div>سبد خرید
+      </a>
+      <a href="/pages/about.html">درباره ما</a>
+    </div>
+    <div>
 
-        <div id="showResult">
-            <p id="productLength">تعداد محصولات : 5</p>
-            <hr>
-            <div>
-                <p id="finalPrice"> قیمت نهایی : <p id="result">1500</p></p>
-                <a id="pay" href="../pages/pay.html">
-                    <button>پرداخت</button>
-                </a>
-            </div>
-        </div>
+      <input id="search-filter" type="text" placeholder="جستجوی نام کتاب، ژانر، نویسنده و سال انتشار">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+        viewBox="0 0 16 16">
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+      </svg>
+    </div>
+  </header>
+  <div id="container">
+    <div id="products">
 
     </div>
-    <script type="module" src="../src/ts/cart.ts"></script>
-    <script type="module" src="../src/ts/base.ts"></script>
+
+    <div id="showResult">
+      <p id="productLength">تعداد محصولات : 5</p>
+      <hr>
+      <div>
+        <p id="finalPrice"> قیمت نهایی :
+        <p id="result">1500</p>
+        </p>
+        <a id="pay" href="../pages/pay.html">
+          <button>پرداخت</button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <script type="module" src="../src/ts/cart.ts"></script>
+  <script type="module" src="../src/ts/base.ts"></script>
 </body>
 
 </html>

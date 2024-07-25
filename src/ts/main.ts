@@ -3,7 +3,6 @@
 import { addBookToCart } from "./addToCart";
 import { addBookToFav } from "./addToFav";
 import { editBook } from "./editBook";
-import { removeBookFromFav } from "./fav";
 import { getDataFromLs } from "./getDataFromLs";
 import { removeBookFromCart } from "./removeFromCart";
 import { setDataToLs } from "./setDataToLs";
@@ -234,9 +233,8 @@ function filterBooks(e: string) {
     if (bookList.length > 40) l = 40
     else l = bookList.length
 
-    let bookL2 = bookList
     for (let index = 0; index < l; index++) {
-        const book = bookL2[index];
+        const book = bookList[index];
         //add book to newbook list
         newBook.push(book);
     }
