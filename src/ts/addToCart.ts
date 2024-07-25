@@ -39,7 +39,6 @@ function addBookToCart(e: object) {
 
             // valid if book request is not in cart list
             if (validationIsBook("cart", book)) {
-
                 // add book to array
                 cartBook = JSON.parse(getDataFromLs("cartBook"))
                 cartBook.push(book)

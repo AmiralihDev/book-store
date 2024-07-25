@@ -4,7 +4,7 @@ import { addBookToCart } from "./addToCart";
 import { addBookToFav } from "./addToFav";
 import { editBook } from "./editBook";
 import { getDataFromLs } from "./getDataFromLs";
-import { removeBookFromCart } from "./removeFromCart";
+import { removeBookFromCart, removeBookFromFav } from "./removeFromCart";
 import { setDataToLs } from "./setDataToLs";
 import { showCartBook, showFavAndCartBook, showFavBook, showNewBook } from "./showData";
 import { silverBox } from "./silverBox";
@@ -269,11 +269,13 @@ function filterBooks(e: string) {
         favBook.forEach(favbook => {
             if (book.id == favbook.id && book.name == favbook.name) {
                 favb = true
+
             }
         })
         cartBook.forEach(cartbook => {
             if (book.id == cartbook.id && book.name == cartbook.name) {
                 cartb = true
+
             }
         })
 
@@ -287,7 +289,6 @@ function filterBooks(e: string) {
         }
         else if (favb) {
             template = showFavBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-
         }
         else {
             template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
@@ -336,13 +337,13 @@ function filterBooks(e: string) {
     removeToCart.forEach((btn) => {
         btn.addEventListener("click", () => {
             removeBookFromCart(btn.parentElement?.parentElement)
-            filterBooks(zhanrFilter?.getAttribute("value"))
+            
         })
     })
     removeToFav.forEach((btn) => {
         btn.addEventListener("click", () => {
             removeBookFromFav(btn.parentElement?.parentElement)
-            filterBooks(zhanrFilter?.getAttribute("value"))
+    
 
         })
     })
