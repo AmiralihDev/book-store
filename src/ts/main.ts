@@ -266,34 +266,34 @@ function filterBooks(e: string) {
     filter.forEach((book) => {
         let template: HTMLElement
 
-        favBook.forEach(favbook => {
-            if (book.id == favbook.id && book.name == favbook.name) {
-                favb = true
+        // favBook.forEach(favbook => {
+        //     if (book.id == favbook.id && book.name == favbook.name) {
+        //         favb = true
 
-            }
-        })
-        cartBook.forEach(cartbook => {
-            if (book.id == cartbook.id && book.name == cartbook.name) {
-                cartb = true
+        //     }
+        // })
+        // cartBook.forEach(cartbook => {
+        //     if (book.id == cartbook.id && book.name == cartbook.name) {
+        //         cartb = true
 
-            }
-        })
+        //     }
+        // })
 
 
-        if (cartb && favb) {
-            template = showFavAndCartBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        }
+        // if (cartb && favb) {
+        //     template = showFavAndCartBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        // }
 
-        else if (cartb) {
-            template = showCartBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        }
-        else if (favb) {
-            template = showFavBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        }
-        else {
-            template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        }
-
+        // else if (cartb) {
+        //     template = showCartBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        // }
+        // else if (favb) {
+        //     template = showFavBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        // }
+        // else {
+        //     template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        // }
+        template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
         newProducts?.append(template)
         cartb = false
         favb = false

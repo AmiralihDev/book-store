@@ -5,7 +5,7 @@ import { calculator } from "./calculator"
 import { getDataFromLs } from "./getDataFromLs"
 import { removeBookFromCart } from "./removeFromCart"
 import { setDataToLs } from "./setDataToLs"
-import { showFavBook, showNewBook, showCartBook } from "./showData"
+import { showNewBook } from "./showData"
 import { updateCartLength, updateFavLength } from "./updateLength"
 
 // selector
@@ -41,28 +41,10 @@ function init() {
 function showBook() {
     // show cart book
     cartBook.forEach((book) => {
-        let template: HTMLElement = showCartBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        let template: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
         container?.append(template)
     });
 
-    // amaliat buttons events
-    let removeCartBook = document.querySelectorAll(".removeToCart")
-    let addToFav = document.querySelectorAll(".addToFav")
-
-    addToFav.forEach((book) => {
-
-        book.addEventListener("click", () => {
-            addBookToFav(book.parentElement?.parentElement)
-        })
-    })
-    removeCartBook.forEach((book) => {
-        book.addEventListener("click", () => {
-            removeBookFromCart(book.parentElement?.parentElement)
-            book.parentElement?.parentElement.remove()
-            calculator()
-
-        })
-    })
 }
 
 // create new pay request

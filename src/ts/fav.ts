@@ -1,7 +1,7 @@
 import { addBookToCart } from "./addToCart"
 import { getDataFromLs } from "./getDataFromLs"
 import { setDataToLs } from "./setDataToLs"
-import { showFavBook, showNewBook } from "./showData"
+import { showNewBook } from "./showData"
 import { updateFavLength } from "./updateLength"
 
 let container = document.getElementById("container")
@@ -26,21 +26,8 @@ function init() {
 function showBook() {
 
     favBook.forEach((book) => {
-        let template: HTMLElement = showFavBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        let template: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
         container?.append(template)
     });
-    // amaliat buttons events
-    let removeFavBook = document.querySelectorAll(".removeToFav")
-    let addToCart = document.querySelectorAll(".addToCart")
-    removeFavBook.forEach((book) => {
-        book.addEventListener("click", () => {
-            removeBookFromFav(book.parentElement?.parentElement)
-            book.parentElement?.parentElement.remove()
-        })
-    })
-    addToCart.forEach((book) => {
-        book.addEventListener("click", () => {
-            addBookToCart(book.parentElement?.parentElement)
-        })
-    })
+
 }
