@@ -33,39 +33,7 @@ function removeBookFromCart(e: object) {
             cartBook = []
             updateCartLength()
 
-            // let btn = e.children[4].children[0]
-            // let deleteBook = domGenerator({
-            //     tag: "button",
-            //     properties: { innerText: "افزودن به سبد خرید" },
-            //     attributes: { class: "addToCart" },
-            //     eventListeners: {
-            //         click: (e) => {
-            //             // send request to remove book from fav list
-            //             addBookToCart(e.target.parentElement.parentElement)
-
-            //             // create add book button
-            //             let b = domGenerator({
-            //                 tag: "button",
-            //                 properties: { innerText: "حذف از سبد خرید" },
-            //                 attributes: { class: "removeToCart" },
-            //                 eventListeners: {
-            //                     click: (ev) => {
-            //                         // send request to add book to fav book list
-            //                         removeBookFromCart(ev.target.parentElement.parentElement)
-            //                         //replace buttons
-            //                         b.replaceWith(deleteBook)
-            //                     }
-            //                 }
-            //             })
-
-
-            //             //replace buttons
-            //             deleteBook.replaceWith(b)
-            //         }
-            //     }
-            // })
-
-            // btn.replaceWith(deleteBook)
+            
         }
     })
 }
@@ -83,7 +51,7 @@ function removeBookFromFav(e: object) {
 
     // check is it any book ?
     favBook = JSON.parse(getDataFromLs("favBook"))
-    favBook.forEach((book: object, index) => {
+    favBook.forEach((book: object, index : number) => {
 
         if (`شماره کتاب : ${book.id}` == bookNum) {
 
@@ -95,39 +63,6 @@ function removeBookFromFav(e: object) {
             setDataToLs("favBook", JSON.stringify(favBook))
             favBook = []
             updateFavLength()
-
-            // let btn = e.children[4].children[1]
-            // let deleteBook = domGenerator({
-            //     tag: "button",
-            //     properties: { innerText: "علاقه مندی ها" },
-            //     attributes: { class: "addToFav" },
-            //     eventListeners: {
-            //         click: (e) => {
-            //             // send request to remove book from fav list
-            //             addBookToFav(e.target.parentElement.parentElement)
-
-            //             // create add book button
-            //             let b = domGenerator({
-            //                 tag: "button",
-            //                 properties: { innerText: "حذف علاقه مندی" },
-            //                 attributes: { class: "removeToFav" },
-            //                 eventListeners: {
-            //                     click: (ev) => {
-            //                         // send request to add book to fav book list
-            //                         removeBookFromFav(ev.target.parentElement.parentElement)
-            //                         //replace buttons
-            //                         b.replaceWith(deleteBook)
-            //                     }
-            //                 }
-            //             })
-
-
-            //             //replace buttons
-            //             deleteBook.replaceWith(b)
-            //         }
-            //     }
-            // })
-            // btn.replaceWith(deleteBook)
         }
     })
 }

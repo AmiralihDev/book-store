@@ -46,7 +46,10 @@ function showBook() {
     });
 
 }
-
+/**
+ * 
+ * @param {number} price 
+ */
 // create new pay request
 function requestCreator(price: number) {
     let obj = {

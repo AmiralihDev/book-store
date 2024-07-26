@@ -216,14 +216,16 @@ function showBestBook() {
     for (let index = 0; index < bestBook.length; index++) {
         const book = bestBook[index];
         let template: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        let template2: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
         template.classList.add("swiper-slide")
         productAnimation1?.append(template)
     }
 }
-
+/**
+ * 
+ * @param {string} zhanr 
+ */
 //find book from zhanr
-function filterBooks(e: string) {
+function filterBooks(zhanr: string) {
 
     let newBook: object[] = []
     let filter: object[] = []
@@ -239,13 +241,13 @@ function filterBooks(e: string) {
         newBook.push(book);
     }
     // check filter
-    if (e == "همه") {
+    if (zhanr == "همه") {
         filter = newBook
     } else {
 
         newBook.filter((book) => {
 
-            if (book.zhanr == e) {
+            if (book.zhanr == zhanr) {
                 filter.push(book)
             }
         })
@@ -258,60 +260,18 @@ function filterBooks(e: string) {
         h1.innerText = "درحال حاضر کتاب جدیدی در این ژانر نداریم"
         newProducts?.append(h1)
     }
-    let justBook = true
-    let favb = false
-    let cartb = false
-    let cartAndfavb = false
     // check is fav book? cart book ? or fav and cart book ?
     filter.forEach((book) => {
         let template: HTMLElement
 
-        // favBook.forEach(favbook => {
-        //     if (book.id == favbook.id && book.name == favbook.name) {
-        //         favb = true
-
-        //     }
-        // })
-        // cartBook.forEach(cartbook => {
-        //     if (book.id == cartbook.id && book.name == cartbook.name) {
-        //         cartb = true
-
-        //     }
-        // })
-
-
-        // if (cartb && favb) {
-        //     template = showFavAndCartBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        // }
-
-        // else if (cartb) {
-        //     template = showCartBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        // }
-        // else if (favb) {
-        //     template = showFavBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        // }
-        // else {
-        //     template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
-        // }
+        
         template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
         newProducts?.append(template)
-        cartb = false
-        favb = false
     })
-    // amaliat buttons events
-    let removeToFav = document.querySelectorAll(".removeToFav")
-    let removeToCart = document.querySelectorAll("removeToCart")
-    let addToFav = document.querySelectorAll(".addToFav")
-    let addToCart = document.querySelectorAll(".addToCart")
+    
     let trash = document.querySelectorAll(".trash")
     let edit = document.querySelectorAll(".edit")
-    addToFav.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-
-            addBookToFav(btn.parentElement?.parentElement);
-
-        })
-    })
+   
     edit.forEach((btn) => {
         btn.addEventListener("click", (e) => {
 
@@ -324,27 +284,6 @@ function filterBooks(e: string) {
 
             trashBook(btn.parentElement?.parentElement);
             bookList = JSON.parse(getDataFromLs("bookList"))
-        })
-    })
-    addToCart.forEach((btn) => {
-        btn.addEventListener("click", () => {
-
-            addBookToCart(btn.parentElement?.parentElement)
-
-
-        })
-    })
-    removeToCart.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            removeBookFromCart(btn.parentElement?.parentElement)
-            
-        })
-    })
-    removeToFav.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            removeBookFromFav(btn.parentElement?.parentElement)
-    
-
         })
     })
 }

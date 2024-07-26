@@ -178,6 +178,16 @@ function editBook(e: object) {
 
 
 // create new modal
+/**
+ * 
+ * @param {string} bookName 
+ * @param {string} zhanr 
+ * @param {string} author 
+ * @param {number} makeYear 
+ * @param {number} price 
+ */
+
+
 function getNewData(bookName: string, zhanr: string, author: string, makeYear: string, price: string) {
     silverBox({
         title: {

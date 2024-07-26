@@ -16,6 +16,7 @@ let product = document.querySelector(".products-list")
 let zhanrFilter = document.querySelector(".active-tab")
 let bookList: object[] = []
 // event listeners
+
 function eventListener() {
     document.addEventListener("DOMContentLoaded", init)
     let tabs = document.querySelectorAll(".tab-btn")
@@ -42,17 +43,21 @@ function init() {
 }
 
 // filter books
-function filterBooks(e: string) {
+/**
+ * 
+ * @param {string} zhanr
+ */
+function filterBooks(zhanr: string) {
     let filter: object[] = []
 
     // valid filter
-    if (e == "همه") {
+    if (zhanr == "همه") {
         filter = bookList
     } else {
 
         bookList.filter((book) => {
 
-            if (book.zhanr == e) {
+            if (book.zhanr == zhanr) {
                 filter.push(book)
             }
         })
@@ -77,8 +82,6 @@ function filterBooks(e: string) {
     // check user search
     filterSearchBook()
     // amaliat buttons events
-    let addToFav = document.querySelectorAll(".addToFav")
-    let addToCart = document.querySelectorAll(".addToCart")
     let trash = document.querySelectorAll(".trash")
     let edit = document.querySelectorAll(".edit")
     edit.forEach((btn) => {
@@ -95,22 +98,7 @@ function filterBooks(e: string) {
 
         })
     })
-    addToFav.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
 
-            addBookToFav(btn.parentElement?.parentElement);
-
-        })
-    })
-    addToCart.forEach((btn) => {
-        btn.addEventListener("click", () => {
-
-
-            addBookToCart(btn.parentElement?.parentElement)
-
-
-        })
-    })
 }
 
 
@@ -258,8 +246,7 @@ function addNewBookToList() {
         })
 
         // amaliat buttons events
-        let addToFav = document.querySelectorAll(".addToFav")
-        let addToCart = document.querySelectorAll(".addToCart")
+        
         let trash = document.querySelectorAll(".trash")
         let edit = document.querySelectorAll(".edit")
         edit.forEach((btn) => {
@@ -272,16 +259,5 @@ function addNewBookToList() {
                 trashBook(btn.parentElement?.parentElement);
             })
         })
-        addToFav.forEach((btn) => {
-            btn.addEventListener("click", (e) => {
-                addBookToFav(btn.parentElement?.parentElement);
-            })
-        })
-        addToCart.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                addBookToCart(btn.parentElement?.parentElement)
-            })
-        })
-
     })
 }

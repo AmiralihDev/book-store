@@ -1,6 +1,14 @@
 import { getDataFromLs } from "./getDataFromLs"
 // check is book in which book list
-function validationIsBook(which: "fav" | "cart" | "book", bookItem: object) {
+
+/**
+ * 
+ * @param {string} which 
+ * @param {object} bookItem 
+ * @returns {boolean}
+ */
+
+function validationIsBook(which: "fav" | "cart" | "book", bookItem: object) : boolean{
     let favList: object[] = JSON.parse(getDataFromLs("favBook"))
     let cartList: object[] = JSON.parse(getDataFromLs("cartBook"))
     let bookList: object[] = JSON.parse(getDataFromLs("bookList"))

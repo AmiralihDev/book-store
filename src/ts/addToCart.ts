@@ -48,42 +48,6 @@ function addBookToCart(e: object) {
 
                 // update header hint text
                 updateCartLength()
-
-                // get button book requet
-                // let btn = e.children[4].children[0]
-
-                // // create delete button
-                // let deleteBook = domGenerator({
-                //     tag: "button",
-                //     properties: { innerText: "حذف از سبد خرید" },
-                //     attributes: { class: "removeToCart" },
-                //     eventListeners: {
-                //         click: (e) => {
-                //             // send request to remove book from cart
-                //             removeBookFromCart(e.target.parentElement.parentElement)
-
-                //             let b = domGenerator({
-                //                 tag: "button",
-                //                 properties: { innerText: "افزودن به سبد خرید" },
-                //                 attributes: { class: "addToCart" },
-                //                 eventListeners: {
-                //                     click: (ev) => {
-                //                         // send request to add book to cart list
-                //                         addBookToCart(ev.target.parentElement.parentElement)
-                //                         // replaces buttons
-                //                         b.replaceWith(deleteBook)
-                //                     }
-                //                 }
-                //             })
-
-                //             // replace buttons
-                //             deleteBook.replaceWith(b)
-                //         }
-                //     }
-                // })
-                // // replace buttons
-
-                // btn.replaceWith(deleteBook)
             } else {
 
             }

@@ -49,44 +49,7 @@ function addBookToFav(e: object) {
                 // update header fav hint text
                 updateFavLength()
 
-                // get book button
-                // let btn = e.children[4].children[1]
-
-
-                // // create delete fav books
-                // let deleteBook = domGenerator({
-                //     tag: "button",
-                //     properties: { innerText: "حذف علاقه مندی" },
-                //     attributes: { class: "removeToFav" },
-                //     eventListeners: {
-                //         click: (e) => {
-                //             // send request to remove book from fav list
-                //             removeBookFromFav(e.target.parentElement.parentElement)
-
-                //             // create add book button
-                //             let b = domGenerator({
-                //                 tag: "button",
-                //                 properties: { innerText: "علاقه مندی ها" },
-                //                 attributes: { class: "addToFav" },
-                //                 eventListeners: {
-                //                     click: (ev) => {
-                //                         // send request to add book to fav book list
-                //                         addBookToFav(ev.target.parentElement.parentElement)
-                //                         //replace buttons
-                //                         b.replaceWith(deleteBook)
-                //                     }
-                //                 }
-                //             })
-
-
-                //             //replace buttons
-                //             deleteBook.replaceWith(b)
-                //         }
-                //     }
-                // })
-
-                // //replace buttons
-                // btn.replaceWith(deleteBook)
+    
             } else {
 
 
