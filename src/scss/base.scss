@@ -1,5 +1,6 @@
 $perple: rgb(125, 0, 179);
-
+$red : rgb(177, 0, 0);
+$privetWith : 1200px;
 @font-face {
   font-family: vazir;
   src: url(/public/font/Vazir-Bold.ttf);
@@ -14,83 +15,122 @@ a {
   text-decoration: none;
 }
 #container {
-  width: 90%;
+  width: $privetWith;
   margin: 0 auto;
 }
 header {
   z-index: 999;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
-  height: 80px;
+  height: 130px;
+  background-color: #ffffff;
   position: sticky;
   top: 0;
-  background-color: #ffffff;
-  div:last-child {
-    border: 1px solid gray;
-    padding: 3px 18px;
-    border-radius: 7px;
+  button {
+    background-color: #fff;
+    border: 2px solid $red;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    &:hover{
+      background-color: $red;
+      transition: all 0.4s;
+      color: white;
+    }
+  }
+  .up{
+    width: $privetWith;
+    display: flex;
+    height: 50%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    #up-right{
+      display: flex;
+      align-items: center;
+      width: 900px;
+      justify-content: space-between;
+    }
+  }
+  .down{
+    width: $privetWith;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+    div:first-child {
+      display: flex;
+      justify-content: space-between;
+      a {
+        display: flex;
+        margin-right: 15px;
+        margin-left: 15px;
+        align-items: center;
+        width: auto;
+        padding: 3px 10px;
+        height: 65px;
+        div{
+          position: absolute;
+          left: 0;
+          top: 8px;
+          color: $red;
+        }
+      }
+    }
+  }
+  #searchBox {
+    background: #f4f4f4;
+    padding: 3px 30px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
     * {
       display: inline-block;
     }
     input {
       margin-left: 10px;
-      height: 40px;
-      width: 300px;
-      color: $perple;
+      height: 35px;
+      width: 560px;
+      margin-right: 20px;
+      color: $red;
       outline: none;
+      background-color: #f4f4f4;
       border: none;
     }
-  }
-  div:nth-child(2) {
-    margin-right: 130px;
-    width: 35%;
-    div {
-      width: 20px;
-      border-radius: 50%;
-      height: 32px;
-      color: $perple;
-      position: absolute;
-      border: none;
-      top: 10px;
-      left: -10px;
-    }
-    display: flex;
-    justify-content: space-between;
-  }
-  div:first-child {
-    * {
-      display: inline-block;
+    svg {
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
   h1 {
-    color: $perple;
-    font-size: 22px;
+    color: $red;
+    font-size: 35px;
   }
 
   #icon {
-    color: $perple;
+    color: $red;
+    *{
+      display: flex;
+      align-items: center;
+      display: inline-block;
+    }
   }
   img {
-    width: 80px;
+    width: 120px;
   }
-  div:nth-child(2) a {
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-    height: 80px;
+  .down div:first-child a {
     position: relative;
     color: black;
     &:hover {
-      color: $perple;
+      color: $red;
     }
     &::after {
       content: "";
       position: absolute;
-      background-color: $perple;
-      height: 2.5px;
+      background-color: $red;
+      height: 2px;
       width: 0%;
       left: 50%;
       bottom: 0;

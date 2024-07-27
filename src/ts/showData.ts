@@ -73,26 +73,6 @@ function showNewBook(id: number, name: string, zhanr: string, author: string, ma
                     {
                         tag: "p",
                         attributes: {
-                            class: "bookZhanr",
-
-                        },
-                        properties: {
-                            innerText: `ژانر : ${zhanr}`
-                        }
-                    },
-                    {
-                        tag: "p",
-                        attributes: {
-                            class: "bookAuthor",
-
-                        },
-                        properties: {
-                            innerText: `نویسنده : ${author}`
-                        }
-                    },
-                    {
-                        tag: "p",
-                        attributes: {
                             class: "bookYear",
 
                         },
@@ -103,11 +83,32 @@ function showNewBook(id: number, name: string, zhanr: string, author: string, ma
                     {
                         tag: "p",
                         attributes: {
+                            class: "bookAuthor",
+
+                        },
+                        properties: {
+                            innerText: `${author}`
+                        }
+                    },
+                    
+                    {
+                        tag: "p",
+                        attributes: {
+                            class: "bookZhanr",
+
+                        },
+                        properties: {
+                            innerText: `${zhanr}`
+                        }
+                    },
+                    {
+                        tag: "p",
+                        attributes: {
                             class: "bookPrice",
 
                         },
                         properties: {
-                            innerText: `قیمت کتاب : ${price.toLocaleString()}`
+                            innerText: `${price.toLocaleString()} ت`
                         }
                     },
                 ]
@@ -121,7 +122,7 @@ function showNewBook(id: number, name: string, zhanr: string, author: string, ma
                     {
                         tag: "button",
                         properties: {
-                            innerText: "ویرایش کتاب"
+                            innerText: "ویرایش"
                         },
                         attributes: {
                             type: "button",
@@ -131,7 +132,7 @@ function showNewBook(id: number, name: string, zhanr: string, author: string, ma
                     {
                         tag: "button",
                         properties: {
-                            innerText: "حذف کتاب"
+                            innerText: "حذف"
                         },
                         attributes: {
                             type: "button",
@@ -165,7 +166,7 @@ function showNewBook(id: number, name: string, zhanr: string, author: string, ma
  * @returns {HTMLButtonElement}
  */
 function addFav() : HTMLButtonElement{
-    return buttonCreator("علاقه مندی ها", "addToFav", (e: object) => {
+    return buttonCreator("/public/image/saved-icon.webp", "addToFav", (e: object) => {
         addBookToFav(e.target.parentElement.parentElement)
         e.target.replaceWith(removeFav())
     })
@@ -175,7 +176,7 @@ function addFav() : HTMLButtonElement{
  * @returns {HTMLButtonElement}
  */
 function removeFav() : HTMLButtonElement{
-    return buttonCreator("حذف علاقه مندی", "removeToFav", (e: object) => {
+    return buttonCreator("/public/image/notSave.webp", "removeToFav", (e: object) => {
 
         removeBookFromFav(e.target.parentElement.parentElement)
         if (e.target.parentElement.parentElement.parentElement.id == "container"){
@@ -191,7 +192,7 @@ function removeFav() : HTMLButtonElement{
  * @returns {HTMLButtonElement}
  */
 function addCart() :HTMLButtonElement{
-    return buttonCreator("افزودن به سبد خرید", "addToCart", (e: object) => {
+    return buttonCreator("/public/image/addCart.webp", "addToCart", (e: object) => {
         addBookToCart(e.target.parentElement.parentElement)
         e.target.replaceWith(removeCart())
     })
@@ -201,7 +202,7 @@ function addCart() :HTMLButtonElement{
  * @returns {HTMLButtonElement}
  */
 function removeCart() : HTMLButtonElement{
-    return buttonCreator("حذف از سبد خرید", "removeToCart", (e: object) => {
+    return buttonCreator("/public/image/cartRemove.webp", "removeToCart", (e: object) => {
         removeBookFromCart(e.target.parentElement.parentElement)
         if (e.target.parentElement.parentElement.parentElement.id == "products"){
             e.target.parentElement.parentElement.remove()
@@ -214,25 +215,25 @@ function removeCart() : HTMLButtonElement{
     })
 }
 /**
- * @param {string} text 
+ * @param {string} src 
  * @param {string} className 
  * @param {Function} click 
  * @returns {HTMLButtonElement}
  */
 
-function buttonCreator(text: string, className: string, click: any) : HTMLButtonElement{
+function buttonCreator(src: string, className: string, click: any) : HTMLButtonElement{
     return domGenerator({
-        tag: "button",
-        properties: {
-            textContent: text
-        },
+        tag: "img",
+       
         attributes: {
-            type: "button",
+            src : src,
             class: className
         },
         eventListeners: {
             click: click
         }
+        
+        
     })
 }
 

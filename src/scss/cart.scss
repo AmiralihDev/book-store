@@ -7,6 +7,23 @@ $perple: rgb(125, 0, 179);
     margin-bottom: 150px;
     width: 100%;
   }
+  display: flex;
+  justify-content: center;
+  #noBook {
+    position: absolute;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    h1 {
+      font-size: 35px;
+    }
+    img {
+      width: 250px;
+      margin: 0 auto;
+    }
+  }
 }
 #showResult {
   width: 50%;
@@ -39,8 +56,7 @@ $perple: rgb(125, 0, 179);
   }
 }
 .books {
-  div:nth-child(4){
-    
+  div:nth-child(4) {
     display: none;
     background: #000;
   }

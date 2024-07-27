@@ -13,12 +13,7 @@
 }
 .writeText h1 {
   font-size: 45px;
-  color: rgb(125, 0, 179);
-}
-
-.products h1 {
-  margin-bottom: 50px;
-  font-size: 28px;
+  color: rgb(177, 0, 0);
 }
 
 .swiper {
@@ -28,7 +23,8 @@
 }
 
 .swiper-slide {
-  max-height: 510px;
+  max-height: 390px;
+  width: 15.81%;
   margin-bottom: 50px;
 }
 
@@ -36,7 +32,7 @@
   padding: 15px;
   display: flex;
   width: 100%;
-  height: 610px;
+  height: 500px;
 }
 
 .tabsBtn {
@@ -85,8 +81,8 @@
 .author img {
   width: 140px;
   height: 140px;
-  border: 2px solid rgb(125, 0, 179);
-  border-radius: 50%;
+  border: 2px solid rgb(177, 0, 0);
+  border-radius: 100%;
 }
 .author h1 {
   font-size: 28px;
@@ -97,13 +93,20 @@
   width: 98%;
   margin: 80px auto;
 }
+.products > h1 {
+  font-size: 25px;
+  margin-bottom: 50px;
+}
+.products #notBook {
+  margin-top: 90px;
+}
 .products #viewAll {
   background-color: #ebebeb;
   padding: 5px 10px;
   border-radius: 3px;
 }
 .products .active-tab {
-  background-color: rgb(125, 0, 179);
+  background-color: rgb(177, 0, 0);
   color: #fff;
 }
 .products .tab-btn {
@@ -115,7 +118,7 @@
   transition: 0.3s;
 }
 .products .tab-btn:hover {
-  background-color: rgb(125, 0, 179);
+  background-color: rgb(177, 0, 0);
   color: #fff;
 }
 .products > div {

@@ -30,13 +30,7 @@ function editBook(e: object) {
         const book = bookList[index];
 
 
-        if (`شماره کتاب : ${book.id}` == bookNum &&
-            book.name == bookName &&
-            `ژانر : ${book.zhanr}` == zhanr &&
-            `نویسنده : ${book.author}` == author &&
-            `سال انتشار : ${book.makeYear}` == makeNum &&
-            `قیمت کتاب : ${book.price.toLocaleString()}` == price
-        ) {
+        if (`شماره کتاب : ${book.id}` == bookNum ) {
             // show modal
             getNewData(book.name, book.zhanr, book.author, book.makeYear, book.price)
 
@@ -135,12 +129,7 @@ function editBook(e: object) {
                     const cartbook = cartBook[index];
 
 
-                    if (`شماره کتاب : ${cartbook.id}` == bookNum &&
-                        cartbook.name == bookName &&
-                        `ژانر : ${cartbook.zhanr}` == zhanr &&
-                        `نویسنده : ${cartbook.author}` == author &&
-                        `سال انتشار : ${cartbook.makeYear}` == makeNum &&
-                        `قیمت کتاب : ${cartbook.price.toLocaleString()}` == price
+                    if (`شماره کتاب : ${cartbook.id}` == bookNum 
                     ) {
                         if (url) {
 

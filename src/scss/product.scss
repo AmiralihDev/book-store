@@ -1,4 +1,5 @@
 $perple: rgb(125, 0, 179);
+$red : rgb(177, 0, 0);
 #notBook {
   text-align: center;
   font-size: 22px;
@@ -7,14 +8,14 @@ $perple: rgb(125, 0, 179);
 }
 #newBook {
     margin-top: 50px;
-  border: 2px solid $perple;
+  border: 2px solid $red;
   font-size: 13px;
   padding: 5px;
   border-radius: 4px;
   transition: 0.3s;
   background-color: #fff;
   &:hover {
-    background-color: $perple;
+    background-color: $red;
     color: #fff;
   }
 }
@@ -22,6 +23,9 @@ $perple: rgb(125, 0, 179);
   display: flex;
   flex-wrap: wrap;
   margin-top: 25px;
+  #notBook{
+    margin-top: 90px;
+  }
 }
 .books {
   position: relative;
@@ -30,11 +34,26 @@ $perple: rgb(125, 0, 179);
   margin-left: 10px;
   border: 1px solid rgb(189, 189, 189);
   margin-top: 7px;
-  height: 510px;
-  width: 19.2%;
+  height: 390px;
+  width: 15.81%;
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  .bookZhanr{
+    background-color: #eee;
+    text-align: center;
+    border-radius: 25px;
+    display: flex;
+    width: 90px;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+  }
+  .bookPrice {
+    position: absolute;
+    color: rgb(5, 141, 0);
+    left: -50px;
+  }
   .amaliatBtn {
   }
   &:hover div:last-child {
@@ -45,15 +64,20 @@ $perple: rgb(125, 0, 179);
     transition: all 0.8s;
     opacity: 1;
   }
+  p{
+    opacity: 0.7;
+    font-size: 14px;
+  }
   h1 {
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
-    color: $perple;
+    color: black;
     margin-top: 15px;
   }
   img {
     margin: 0 auto;
-    width: 210px;
+    width: 160px;
+    height: 160px;
   }
   div {
     * {
@@ -62,29 +86,30 @@ $perple: rgb(125, 0, 179);
   }
   div:nth-child(2) {
     position: absolute;
-    bottom: 180px;
+    bottom: 160px;
+
   }
   div:nth-child(3) {
     position: absolute;
 
-    bottom: 70px;
+    bottom: 90px;
   }
   .amaliatBtn {
     opacity: 0;
-    top: 10px;
+    top: 0;
     position: absolute;
     display: flex;
     width: 83%;
     justify-content: space-between;
     button {
-      border: 2px solid $perple;
+      border: 2px solid $red;
       font-size: 13px;
       padding: 5px;
       border-radius: 4px;
       transition: 0.3s;
       background-color: #fff;
       &:hover {
-        background-color: $perple;
+        background-color: $red;
         color: #fff;
       }
     }
@@ -97,19 +122,21 @@ $perple: rgb(125, 0, 179);
     opacity: 0;
     left: 15px;
     justify-content: space-between;
-    width: 90%;
-
-    button {
-      border: 2px solid $perple;
+    width: 80%;
+    margin: 0 auto;
+    img {
+      cursor: pointer;
+      border: 2px solid black;
       font-size: 13px;
       padding: 5px;
       border-radius: 4px;
       transition: 0.3s;
       background-color: #fff;
       &:hover {
-        background-color: $perple;
-        color: #fff;
+        
       }
+      width: 50px;
+      height: 50px;
     }
   }
 }

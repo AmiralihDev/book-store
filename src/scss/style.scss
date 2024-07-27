@@ -1,4 +1,5 @@
 $perple: rgb(125, 0, 179);
+$red : rgb(177, 0, 0);
 .writeText {
   width: 100%;
   height: 550px;
@@ -13,15 +14,10 @@ $perple: rgb(125, 0, 179);
   }
   h1 {
     font-size: 45px;
-    color: $perple;
+    color: $red;
   }
 }
-.products {
-  h1 {
-    margin-bottom: 50px;
-    font-size: 28px;
-  }
-}
+
 .swiper {
   width: 100%;
   padding-top: 50px;
@@ -29,7 +25,8 @@ $perple: rgb(125, 0, 179);
 }
 
 .swiper-slide {
-  max-height: 510px;
+  max-height: 390px;
+  width: 15.81%;
   margin-bottom: 50px;
 }
 
@@ -39,7 +36,7 @@ $perple: rgb(125, 0, 179);
   padding: 15px;
   display: flex;
   width: 100%;
-  height: 610px;
+  height: 500px;
 }
 .tabsBtn{
   display: flex;
@@ -74,8 +71,8 @@ $perple: rgb(125, 0, 179);
   img {
     width: 140px;
     height: 140px;
-    border: 2px solid $perple;
-    border-radius: 50%;
+    border: 2px solid $red;
+    border-radius: 100%;
   }
   h1 {
     font-size: 28px;
@@ -98,13 +95,20 @@ $perple: rgb(125, 0, 179);
 .products {
   width: 98%;
   margin: 80px auto;
+  >h1 {
+    font-size: 25px;
+    margin-bottom: 50px;
+  }
+  #notBook{
+    margin-top: 90px;
+  }
   #viewAll {
     background-color: #ebebeb;
     padding: 5px 10px;
     border-radius: 3px;
   }
   .active-tab {
-    background-color: $perple;
+    background-color: $red;
     color: #fff;
   }
   .tab-btn {
@@ -115,7 +119,7 @@ $perple: rgb(125, 0, 179);
     letter-spacing: 1px;
     transition: 0.3s;
     &:hover {
-      background-color: $perple;
+      background-color: $red;
       color: #fff;
     }
   }

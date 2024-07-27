@@ -16,32 +16,42 @@
 
 <body dir="rtl">
   <header>
-    <div>
-      <a id="icon" href="./index.html">
-        <img src="/public/image/yakozaLogo-removebg-preview.png" alt="">
-        <h1>یاکوزا</h1>
-      </a>
-    </div>
+    <div class="up">
+      <div id="up-right">
+        <div>
+          <a id="icon" href="./index.html">
+            <img src="/public/image/yakozaLogo-removebg-preview.png" alt="">
+            <h1>یاکوزا</h1>
+          </a>
+        </div>
+        <div id="searchBox">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+          </svg>
+          <input id="search-filter" type="text" placeholder="جستجوی نام کتاب، ژانر، نویسنده و سال انتشار">
+        </div>
+      </div>
 
-    <div>
-      <a href="/index.html">خانه</a>
-      <a href="/pages/products.html">محصولات</a>
-      <a href="/pages/fav.html">
-        <div id="favLength"></div> علاقه مندی ها
-      </a>
-      <a href="/pages/priceBox.html">
-        <div id="cartLength"></div>سبد خرید
-      </a>
-      <a href="/pages/about.html">درباره ما</a>
-    </div>
-    <div>
 
-      <input id="search-filter" type="text" placeholder="جستجوی نام کتاب، ژانر، نویسنده و سال انتشار">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-        viewBox="0 0 16 16">
-        <path
-          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-      </svg>
+      <div><a href="#"><button type="button">حساب کاربری</button></a></div>
+    </div>
+    <div class="down">
+      <div>
+        <a href="/index.html">خانه</a>
+        <a href="/pages/products.html">محصولات</a>
+        <a href="/pages/fav.html">
+          <div id="favLength"></div> علاقه مندی ها
+        </a>
+        <a href="/pages/priceBox.html">
+          <div id="cartLength"></div>سبد خرید
+        </a>
+        <a href="/pages/about.html">درباره ما</a>
+      </div>
+      <div>
+        <a href="#"><button type="button">نصب یاکوزا</button></a>
+      </div>
     </div>
   </header>
   <div id="container">
