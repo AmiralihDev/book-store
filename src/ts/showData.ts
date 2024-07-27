@@ -7,18 +7,16 @@ import { calculator } from "./calculator"
 
 
 /**
- * 
+ * \
  * @param {string} id 
  * @param {string} name 
  * @param {string} zhanr 
  * @param {string} author 
  * @param {number} makeYear 
  * @param {string} imgSrc 
- * @param {number} price 
- * @returns {HTMLElement}
+ * @param {number} price
+ * @returns {HTMLElement} 
  */
-
-
 
 // books templates
 function showNewBook(id: number, name: string, zhanr: string, author: string, makeYear: number, imgSrc: string, price: number): HTMLElement {

@@ -69,7 +69,7 @@ function editBook(e: object) {
                 book.name = newBookName.value
                 book.zhanr = newBookZhanr.value
                 book.author = newBookAuthor.value
-                book.price = newBookPrice.value
+                book.price = parseInt(newBookPrice.value)
                 book.makeYear = newBookYear.value
 
                 // set book list to ls
@@ -79,13 +79,14 @@ function editBook(e: object) {
                 parent.innerHTML = ""
 
                 // create books
-                let book2 = bookList.reverse()
+                let book2 = bookList
                 for (const key of book2) {
 
 
                     let template: any
 
                     template = showNewBook(key.id, key.name, key.zhanr, key.author, key.makeYear, key.imgSrc, key.price)
+                    console.log(key);
                     // check is book in slider (index.html) ?
                     if (parent.classList == "swiper-wrapper") {
                         // add slider class to template
@@ -103,19 +104,6 @@ function editBook(e: object) {
                 editBooks.forEach(btn => btn.addEventListener("click", () => {
                     editBook(btn.parentElement?.parentElement)
                 }))
-                let addToFav = document.querySelectorAll(".addToFav")
-                let addToCart = document.querySelectorAll(".addToCart")
-                addToFav.forEach(btn => {
-                    btn.addEventListener("click", () => {
-                        addBookToFav(btn.parentElement?.parentElement)
-                    })
-                })
-
-                addToCart.forEach(btn => {
-                    btn.addEventListener("click",() => {
-                        addBookToCart(btn.parentElement?.parentElement)
-                    })
-                })
                 // valid : is this book in other lists 
                 // change book value too
                 for (let index = 0; index < favBook.length; index++) {
