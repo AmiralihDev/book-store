@@ -1,7 +1,5 @@
 // import modules
 
-import { addBookToCart } from "./addToCart"
-import { addBookToFav } from "./addToFav"
 import { getDataFromLs } from "./getDataFromLs"
 import { setDataToLs } from "./setDataToLs"
 import { showNewBook } from "./showData"
@@ -10,6 +8,17 @@ import { silverBox } from "./silverBox"
 
 
 // edit book
+/** get book element and get book values from element
+ *  
+ * check book id
+ * 
+ * show modal for get new id and get modal value
+ * set new book value
+ * 
+ * 
+ * @param {object} e - get book element to get book values
+ *  @returns {void} 
+ */
 function editBook(e: object) {
     // get books list
     let cartBook = JSON.parse(getDataFromLs("cartBook"))
@@ -78,9 +87,7 @@ function editBook(e: object) {
 
 
                     let template: any
-
                     template = showNewBook(key.id, key.name, key.zhanr, key.author, key.makeYear, key.imgSrc, key.price)
-                    console.log(key);
                     // check is book in slider (index.html) ?
                     if (parent.classList == "swiper-wrapper") {
                         // add slider class to template

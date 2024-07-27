@@ -1,12 +1,10 @@
 // import modules
 
-import { addBookToFav } from "./addToFav"
 import { calculator } from "./calculator"
 import { getDataFromLs } from "./getDataFromLs"
-import { removeBookFromCart } from "./removeFromCart"
 import { setDataToLs } from "./setDataToLs"
 import { showNewBook } from "./showData"
-import { updateCartLength, updateFavLength } from "./updateLength"
+
 
 // selector
 let pay = document.getElementById("pay")
@@ -17,7 +15,7 @@ let container = document.getElementById("products")
 let bookList: object[] = []
 let cartBook: object[] = []
 
-// event listeners
+// all event listeners
 function eventListener() {
     document.addEventListener("DOMContentLoaded", init)
     pay.addEventListener("click", (e) => {
@@ -30,25 +28,28 @@ function eventListener() {
     })
 }
 eventListener()
-
+// this function running if page is loaded
 function init() {
     cartBook = JSON.parse(getDataFromLs("cartBook"))
     bookList = JSON.parse(getDataFromLs("bookList"))
     showBook()
     calculator()
 }
-
+// show cart books to client 
 function showBook() {
     // show cart book
     cartBook.forEach((book) => {
+        // create book template
         let template: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        // append my template created to container
         container?.append(template)
     });
 
 }
 /**
+ *  -- get final price for created object request and set to local storage 
  * 
- * @param {number} price 
+ * @param {number} price - get cart final price
  */
 // create new pay request
 function requestCreator(price: number) {
