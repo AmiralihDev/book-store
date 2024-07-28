@@ -1,10 +1,104 @@
 $perple: rgb(125, 0, 179);
 $red : rgb(177, 0, 0);
-$privetWith : 1200px;
+$privetWidth1 : 1200px;
+$privetWidth2 : 1000px;
+$privetWidth3 : 820px;
+$privetWidth : 700px
 @font-face {
   font-family: vazir;
   src: url(/public/font/Vazir-Bold.ttf);
 }
+@media (max-width : 1220px){
+  header {
+
+    > div{
+      max-width: $privetWidth2;
+    }
+    .up {
+      div:first-child {
+        max-width: 750px;
+      }
+    }
+
+    #searchBox {
+      input {
+        max-width: 500px;
+      }
+    }
+  }
+  #jsText {
+    font-size: 35px;
+  }
+  #container {
+    max-width: $privetWidth2;
+  }
+  .books {
+    min-width: 18.9%;
+  }
+  .author {
+    img {
+      max-width: 110px;
+      min-height: 110px;
+    }
+  }
+  .writeText {
+    max-height: 370px;
+  }
+}
+
+
+
+@media (max-width : 1015px){
+  header {
+
+    > div{
+      max-width: $privetWidth3;
+    }
+    .up {
+      div:first-child {
+        max-width: 620px;
+      }
+    }
+
+    #searchBox {
+      input {
+        max-width: 330px;
+      }
+    }
+  }
+  .writeText {
+    max-height: 370px;
+  }
+  #jsText {
+    font-size: 30px;
+    position: absolute;
+    right: 50px;
+
+  }
+  #container {
+    max-width: $privetWidth3;
+  }
+  .books {
+    min-width: 23.5%;
+  }
+  .author {
+    min-width: 48%;
+    img {
+      max-width: 125px;
+      min-height: 110px;
+    }
+  }
+ .tabsBtn {
+  flex-direction: column;
+  margin-bottom: 30px;
+  div:first-child {
+    margin-bottom: 30px;
+  }
+ }
+ 
+}
+
+
 * {
   font-family: "vazir";
   padding: 0;
@@ -15,7 +109,7 @@ a {
   text-decoration: none;
 }
 #container {
-  width: $privetWith;
+  width: $privetWidth1;
   margin: 0 auto;
 }
 header {
@@ -38,7 +132,7 @@ header {
     }
   }
   .up{
-    width: $privetWith;
+    width: $privetWidth1;
     display: flex;
     height: 50%;
     margin: 0 auto;
@@ -52,7 +146,7 @@ header {
     }
   }
   .down{
-    width: $privetWith;
+    width: $privetWidth1;
     margin: 0 auto;
     display: flex;
     align-items: center;
