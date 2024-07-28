@@ -229,12 +229,20 @@ function addNewBookToList() {
 
     confirm?.addEventListener("click", () => {
         // add modal value to new book object
+        let unicID = 0
+        bookList.forEach (async bookb => {
+            if (bookb.id > unicID){
+                unicID = bookb.id
+            }
+        }
+            
+        )
         book.name = newBookName.value;
         book.author = newBookAuthor.value;
         book.makeYear = newBookYear.value;
         book.zhanr = newBookZhanr.value;
         book.price = newBookPrice.value;
-        book.id = bookList.length + 1
+        book.id = unicID + 1
         bookList.push(book)
         setDataToLs("bookList", JSON.stringify(bookList))
         product.innerHTML = ""

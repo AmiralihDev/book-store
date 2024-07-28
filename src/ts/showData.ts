@@ -7,26 +7,37 @@ import { calculator } from "./calculator"
 
 
 /**
- * \
- * @param {string} id 
- * @param {string} name 
- * @param {string} zhanr 
- * @param {string} author 
- * @param {number} makeYear 
- * @param {string} imgSrc 
- * @param {number} price
- * @returns {HTMLElement} 
+ * \ 
+ *  -- this function can make book template 
+ * 
+ *  just get book id, book name, book zhanr, book author, book year, book image src, book price
+ *  
+ *  -- check id for know this id in cart book or fav book list 
+ * 
+ *   - and create template and add events to buttons book template 
+ * 
+ * @param {string} id - get book id and id for show and check cart book list and fav book list
+ * @param {string} name - get book name
+ * @param {string} zhanr - get book zhanr
+ * @param {string} author - get book author
+ * @param {number} makeYear - get book year 
+ * @param {string} imgSrc - get book image src 
+ * @param {number} price - get book price 
+ * 
+ * @returns {HTMLElement} - get parament and create book template (element) and return thats template
  */
 
 // books templates
 function showNewBook(id: number, name: string, zhanr: string, author: string, makeYear: number, imgSrc: string, price: number): HTMLElement {
-
+    // get updated cart book list
     let bookInCart = JSON.parse(getDataFromLs("cartBook"))
+    // find book id for create buttons template and add events to buttons
     let cartBookFound = bookInCart.find((book) => { return book.id == id })
-
+    // get updated fav book list
     let bookInFav = JSON.parse(getDataFromLs("favBook"))
+    // find book id from fav book list to create buttons template and add events to buttons
     let favBookFound = bookInFav.find((book) => { return book.id == id })
-
+    // create element
     let template = domGenerator({
         tag: "div",
         attributes: {
@@ -147,10 +158,10 @@ function showNewBook(id: number, name: string, zhanr: string, author: string, ma
                     class: "bookBtn"
                 },
                 children: [
-                    {
+                    {   // check cart buttons
                         tag: cartBookFound ? removeCart() : addCart()
                     },
-                    {
+                    {   // check fav buttons
                         tag: favBookFound ? removeFav() : addFav()
                     }
                 ]
@@ -158,11 +169,11 @@ function showNewBook(id: number, name: string, zhanr: string, author: string, ma
 
         ]
     })
-
+    // return thats template
     return template
 }
 /**
- * 
+ *  
  * @returns {HTMLButtonElement}
  */
 function addFav() : HTMLButtonElement{
@@ -214,14 +225,17 @@ function removeCart() : HTMLButtonElement{
         
     })
 }
-/**
- * @param {string} src 
- * @param {string} className 
- * @param {Function} click 
- * @returns {HTMLButtonElement}
+/** 
+ *  -- get button img src, image class, image click events 
+ *  and create buttons and return that
+ * 
+ * @param {string} src - get img src for button
+ * @param {string} className - get img class
+ * @param {Function} click  - get image click events
+ * @returns {HTMLImageElement} create images button and return thats
  */
 
-function buttonCreator(src: string, className: string, click: any) : HTMLButtonElement{
+function buttonCreator(src: string, className: string, click: any) : HTMLImageElement{
     return domGenerator({
         tag: "img",
        

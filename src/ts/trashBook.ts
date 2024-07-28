@@ -2,25 +2,26 @@
 import { getDataFromLs } from "./getDataFromLs"
 import { setDataToLs } from "./setDataToLs"
 import { updateCartLength, updateFavLength } from "./updateLength"
-import { validationIsBook } from "./validationIsBook"
+
 
 
 // trash book
-function trashBook(e: object) {
+/** 
+ * -- get book element and get id from thats element
+ *  
+ * - valid id and check that (this is book) and final remove book from all book lists
+ * 
+ * @param {object} e - get book element for get element id
+ * @returns {void} - just get id and remove that
+ */
+function trashBook(e: object): void {
     // get book lists
     let cartBook = JSON.parse(getDataFromLs("cartBook"))
     let favBook = JSON.parse(getDataFromLs("favBook"))
     let bookList = JSON.parse(getDataFromLs("bookList"))
 
     // egt book body value
-    let imgSrc = e.children[0].src
     let bookNum = e.children[1].children[1].innerText
-    let bookName = e.children[1].children[0].innerText
-    let zhanr = e.children[2].children[0].innerText
-    let author = e.children[2].children[1].innerText
-    let makeNum = e.children[2].children[2].innerText
-    let price = e.children[2].children[3].innerText
-
     bookList = JSON.parse(getDataFromLs("bookList"))
 
     // valid is it books ?
@@ -28,12 +29,7 @@ function trashBook(e: object) {
         const book = bookList[index];
 
 
-        if (`شماره کتاب : ${book.id}` == bookNum &&
-            book.name == bookName &&
-            `ژانر : ${book.zhanr}` == zhanr &&
-            `نویسنده : ${book.author}` == author &&
-            `سال انتشار : ${book.makeYear}` == makeNum &&
-            `قیمت کتاب : ${book.price.toLocaleString()}` == price
+        if (`شماره کتاب : ${book.id}` == bookNum
         ) {
             // delete book
             bookList.splice(index,1)
@@ -47,12 +43,7 @@ function trashBook(e: object) {
         const book = favBook[index];
 
 
-        if (`شماره کتاب : ${book.id}` == bookNum &&
-            book.name == bookName &&
-            `ژانر : ${book.zhanr}` == zhanr &&
-            `نویسنده : ${book.author}` == author &&
-            `سال انتشار : ${book.makeYear}` == makeNum &&
-            `قیمت کتاب : ${book.price.toLocaleString()}` == price
+        if (`شماره کتاب : ${book.id}` == bookNum
         ) {
             // delete book from fav book
             favBook.splice(index,1)
@@ -65,12 +56,7 @@ function trashBook(e: object) {
         const book = cartBook[index];
 
 
-        if (`شماره کتاب : ${book.id}` == bookNum &&
-            book.name == bookName &&
-            `ژانر : ${book.zhanr}` == zhanr &&
-            `نویسنده : ${book.author}` == author &&
-            `سال انتشار : ${book.makeYear}` == makeNum &&
-            `قیمت کتاب : ${book.price.toLocaleString()}` == price
+        if (`شماره کتاب : ${book.id}` == bookNum
         ) {
             // delete cart book
             cartBook.splice(index,1)
