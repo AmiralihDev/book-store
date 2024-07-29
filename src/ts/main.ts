@@ -186,6 +186,7 @@ function init() {
         autoplay: {
           delay: 1200,
           disableOnInteraction: false,
+          pauseOnMouseEnter: true
         },
         pagination: {
           el: ".swiper-pagination",
@@ -217,6 +218,7 @@ function showBestBook() {
         const book = bestBook[index];
         let template: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
         template.classList.add("swiper-slide")
+        
         productAnimation1?.append(template)
     }
 }
