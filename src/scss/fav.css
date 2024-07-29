@@ -1,4 +1,9 @@
 #container {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+footer {
+  margin-top: 50px;
 }/*# sourceMappingURL=fav.css.map */
