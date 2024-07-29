@@ -41,7 +41,7 @@ function calculator() : number| void{
             ]
         })
         // append my template created to client 
-        result?.parentElement?.parentElement?.parentElement?.append(tmp)
+        result?.parentElement?.parentElement?.parentElement?.insertAdjacentElement("beforeend",tmp)
         // remove products factor
         result?.parentElement?.parentElement?.remove()
         return

@@ -207,14 +207,121 @@ header .down div:first-child a:hover::after {
 }
 
 footer {
-  width: 100%;
-  text-align: center;
-  font-size: 19px;
-  background-color: rgb(255, 231, 166);
-  color: rgb(250, 103, 49);
+  width: 1200px;
+  margin: 0 auto;
 }
-footer a {
-  color: rgb(125, 0, 179);
+footer > div:first-child {
+  padding: 5px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+footer > div:first-child > img {
+  width: 200px;
+}
+footer > div:first-child div h1 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+footer > div:first-child div div {
+  width: 570px;
+  display: flex;
+  justify-content: space-between;
+}
+footer > div:first-child div div a img {
+  width: 170px;
+}
+footer #footerSecond {
+  margin-top: 25px;
+  padding: 0 50px;
+  display: flex;
+}
+footer #footerSecond > div:nth-child(2) {
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+  list-style: none;
+}
+footer #footerSecond > div:nth-child(2) li {
+  margin-top: 15px;
+  letter-spacing: 0.5px;
+}
+footer #footerSecond > div:nth-child(2) li:hover {
+  color: rgb(177, 0, 0);
+  opacity: 1;
+}
+footer #footerSecond > div:nth-child(2) li a {
+  opacity: 0.6;
+}
+footer #footerSecond div:first-child {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  align-items: center;
+}
+footer #footerSecond div:first-child div p {
+  font-size: 13px;
+  opacity: 0.7;
+}
+footer #footerSecond div:first-child > img {
+  width: 200px;
+}
+footer #footerSecond div:first-child > div :last-child {
+  margin-top: 15px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer #footerSecond div:first-child > div :last-child img {
+  width: 70px;
+  height: 70px;
+}
+footer > div:nth-child(5) {
+  padding: 3px 50px;
+  margin-top: 25px;
+}
+footer > div:nth-child(5) svg {
+  width: 25px;
+  height: 25px;
+  opacity: 0.5;
+}
+footer > div:nth-child(5) > div:nth-child(2) {
+  margin-top: 25px;
+}
+footer > div:nth-child(5) > div:nth-child(2) ul {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}
+footer > div:nth-child(5) > div:nth-child(2) ul li {
+  color: rgb(177, 0, 0);
+}
+footer > div:nth-child(5) > div:nth-child(2) ul li:hover {
+  color: black;
+}
+footer > div:nth-child(5) div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+footer > div:nth-child(5) div:first-child div:first-child p {
+  opacity: 0.7;
+}
+footer > div:nth-child(5) div:first-child div:nth-child(2) {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+}
+footer div:nth-child(6) {
+  background: gray;
+  color: white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
 }
 
 .hiddenEl {

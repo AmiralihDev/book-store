@@ -4,7 +4,7 @@ let i3:number = 0
 
 
 // get text
-let txt:string = "اینده ای خشن با کتابی خشن"
+let txt:string = "اینده ای خوب با کتابی خوب"
 let txt2:string = ""
 let txt3:string = ""
 

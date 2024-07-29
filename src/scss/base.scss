@@ -3,7 +3,7 @@ $red : rgb(177, 0, 0);
 $privetWidth1 : 1200px;
 $privetWidth2 : 1000px;
 $privetWidth3 : 820px;
-$privetWidth : 700px
+$privetWidth : 700px;
 @font-face {
   font-family: vazir;
   src: url(/public/font/Vazir-Bold.ttf);
@@ -237,13 +237,134 @@ header {
   }
 }
 footer {
-  width: 100%;
-  text-align: center;
-  font-size: 19px;
-  background-color: rgb(255, 231, 166);
-  color: rgb(250, 103, 49);
-  a {
-    color: $perple;
+  width: $privetWidth1;
+  margin: 0 auto;
+
+  hr{
+    
+  }
+  >div:first-child{
+    padding: 5px 50px;
+    display: flex;
+    justify-content: space-between;
+    >img{
+      width: 200px;
+    }
+    div {
+      h1{
+        font-size: 25px;
+        margin-bottom: 20px;
+      }
+      div{
+        width: 570px;
+        display: flex;
+        justify-content: space-between;
+        a {
+          img {
+            width: 170px;
+          }
+        }
+      }
+    }
+  }
+  
+  #footerSecond{
+    margin-top: 25px;
+    padding:0 50px ;
+    display: flex;
+    >div:nth-child(2){
+      display: flex;
+      width: 75%;
+      justify-content: space-between;
+      list-style: none;
+     
+      li{
+        margin-top: 15px;
+        letter-spacing: 0.5px;
+        &:hover {
+          color: $red;
+          opacity: 1;
+        }
+        a {
+          opacity: 0.6;
+        }
+      }
+    }
+    div:first-child{
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      align-items: center;
+      div p{
+        font-size: 13px;
+        opacity: 0.7;
+      }
+      >img{
+        width: 200px;
+      }
+      >div :last-child{
+        margin-top: 15px;
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 70px;
+          height: 70px;
+        }
+      }
+    }
+  }
+  >div:nth-child(5){
+    padding: 3px 50px;
+    margin-top: 25px;
+    svg{
+      width: 25px;
+      height: 25px;
+      opacity: 0.5;
+    }
+    >div:nth-child(2){
+      margin-top: 25px;
+     ul{
+      display: flex;
+      justify-content: space-between;
+      width: 40%;
+      li {
+        color: $red;
+        &:hover{
+          color: black;
+        }
+      }
+     }
+    }
+    div:first-child{
+      display: flex;
+      justify-content: space-between;
+      div:first-child{
+        p{
+          opacity: 0.7;
+        }
+      }
+      div:nth-child(2) {
+        display: flex;
+        width: 200px;
+        
+        justify-content: space-between;
+      }
+    }
+    
+  }
+  div:nth-child(6){
+    background: gray;
+    color: white;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
   }
 }
 

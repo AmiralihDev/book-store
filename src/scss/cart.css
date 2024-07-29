@@ -10,8 +10,7 @@
   width: 100%;
 }
 #container #noBook {
-  position: absolute;
-  top: 100px;
+  margin-bottom: 25px;
   display: flex;
   justify-content: center;
   flex-direction: column;
