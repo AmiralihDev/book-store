@@ -49,6 +49,9 @@ $privetWidth : 700px;
 
 
 @media (max-width : 1015px){
+  .hamburger {
+    display: none;
+  }
   header {
 
     > div{
@@ -98,6 +101,15 @@ $privetWidth : 700px;
  
 }
 
+@media screen and (max-width :840px){
+  .hamburger{
+    display: flex;
+  }
+}
+
+
+
+
 
 * {
   font-family: "vazir";
@@ -112,6 +124,61 @@ a {
   width: $privetWidth1;
   margin: 0 auto;
 }
+
+
+.hamburger {
+  display: none;
+  position: fixed;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  top: 1rem;
+  right: 15px;
+  padding: 4px;
+  border: none;
+  background: none ;
+  cursor: pointer;
+  svg{
+    width: 35px;
+    height: 35px;
+  }
+}
+.closeIcon {
+  display: none;
+}
+.menu {
+  position: fixed;
+  transform: translateY(-100%);
+  transition: transform 0.2s;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: white;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding-top: 4rem;
+  li {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+    a{
+      margin-top: 15px;
+      &:hover{
+        color: $red;
+      }
+    }
+  }
+}
+.showMenu {
+  transform: translateY(0);
+}
+
 header {
   z-index: 999;
   width: 100%;
@@ -119,7 +186,7 @@ header {
   background-color: #ffffff;
   position: sticky;
   top: 0;
-  button {
+  div button {
     background-color: #fff;
     border: 2px solid $red;
     width: 150px;

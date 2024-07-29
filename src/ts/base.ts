@@ -6,6 +6,12 @@ import { setDataToLs } from "./setDataToLs"
 
 // selector
 let searchFilter = document.getElementById("search-filter")
+const menu = document.querySelector(".menu");
+const menuItems = document.querySelectorAll(".menuItem");
+const hamburger= document.querySelector(".hamburger");
+const closeIcon= document.querySelector(".closeIcon");
+const menuIcon = document.querySelector(".menuIcon");
+
 
 // create elements animation
 let observer = new IntersectionObserver((entries) => {
@@ -29,6 +35,7 @@ hiddenElement.forEach((el) => {
 function eventListener(){
     document.addEventListener("DOMContentLoaded",init)
     searchFilter?.addEventListener("keydown",showFilter)
+    hamburger.addEventListener("click", toggleMenu);
 }
 eventListener()
 /** -- this function just started if page is reloaded
@@ -56,4 +63,17 @@ function showFilter(e : object) : void{
         // open products page
         window.open("/pages/products.html")
     }
+}
+
+
+function toggleMenu() {
+  if (menu.classList.contains("showMenu")) {
+    menu.classList.remove("showMenu");
+    closeIcon.style.display = "none";
+    menuIcon.style.display = "block";
+  } else {
+    menu.classList.add("showMenu");
+    closeIcon.style.display = "block";
+    menuIcon.style.display = "none";
+  }
 }

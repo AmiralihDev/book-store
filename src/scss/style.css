@@ -1,8 +1,8 @@
 .writeText {
   width: 100%;
-  height: 550px;
+  height: 750px;
   background-color: antiquewhite;
-  background-image: url(../../public/image/section1bg.jpg);
+  background-image: url(../../public/image/heroSection.avif);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
