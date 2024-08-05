@@ -13,7 +13,7 @@
 }
 .writeText h1 {
   font-size: 45px;
-  color: rgb(177, 0, 0);
+  color: #00fff7;
 }
 
 .swiper {
@@ -65,6 +65,7 @@
 }
 
 .author {
+  font-size: 14px;
   border: 1px solid #b9b9b9;
   padding: 20px;
   margin-right: 13px;
@@ -81,11 +82,11 @@
 .author img {
   width: 130px;
   height: 130px;
-  border: 2px solid rgb(177, 0, 0);
+  border: 2px solid #00fff7;
   border-radius: 100%;
 }
 .author h1 {
-  font-size: 28px;
+  font-size: 25px;
   text-align: center;
 }
 
@@ -106,7 +107,7 @@
   border-radius: 3px;
 }
 .products .active-tab {
-  background-color: rgb(177, 0, 0);
+  background-color: #00fff7;
   color: #fff;
 }
 .products .tab-btn {
@@ -118,7 +119,7 @@
   transition: 0.3s;
 }
 .products .tab-btn:hover {
-  background-color: rgb(177, 0, 0);
+  background-color: #00fff7;
   color: #fff;
 }
 .products > div {

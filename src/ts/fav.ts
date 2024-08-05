@@ -26,7 +26,7 @@ function init() {
 function showBook() {
 
     favBook.forEach((book) => {
-        let template: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        let template: HTMLElement = showNewBook(book.id, book.title, book.categories[0]?.title, `${book.authors[0].firstName} ${book.authors[0].lastName} `,  book.coverUri, book.beforeOffPrice)
         container?.append(template)
     });
 

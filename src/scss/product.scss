@@ -1,5 +1,8 @@
 $perple: rgb(125, 0, 179);
 $red : rgb(177, 0, 0);
+$primery : #00fff7;
+
+
 #notBook {
   text-align: center;
   font-size: 22px;
@@ -8,14 +11,14 @@ $red : rgb(177, 0, 0);
 }
 #newBook {
     margin-top: 50px;
-  border: 2px solid $red;
+  border: 2px solid $primery;
   font-size: 13px;
   padding: 5px;
   border-radius: 4px;
   transition: 0.3s;
   background-color: #fff;
   &:hover {
-    background-color: $red;
+    background-color: $primery;
     color: #fff;
   }
 }
@@ -44,15 +47,13 @@ $red : rgb(177, 0, 0);
     text-align: center;
     border-radius: 25px;
     display: flex;
-    width: 90px;
+    padding: 1px 5px;
     align-items: center;
     justify-content: center;
-    height: 26px;
   }
   .bookPrice {
-    position: absolute;
+  
     color: rgb(5, 141, 0);
-    left: -50px;
   }
   .amaliatBtn {
   }
@@ -69,7 +70,7 @@ $red : rgb(177, 0, 0);
     font-size: 14px;
   }
   h1 {
-    font-size: 20px;
+    font-size: 14px;
     text-align: center;
     color: black;
     margin-top: 15px;
@@ -102,14 +103,14 @@ $red : rgb(177, 0, 0);
     width: 83%;
     justify-content: space-between;
     button {
-      border: 2px solid $red;
+      border: 2px solid $primery;
       font-size: 13px;
       padding: 5px;
       border-radius: 4px;
       transition: 0.3s;
       background-color: #fff;
       &:hover {
-        background-color: $red;
+        background-color: $primery;
         color: #fff;
       }
     }

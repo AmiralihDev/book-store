@@ -53,7 +53,7 @@ function calculator() : number| void{
     let finalPrice : number = 0
     // add all cart books prices to final price
     cartBook.forEach((e : object) => {
-        finalPrice += e.price
+        finalPrice += e.beforeOffPrice
     })
     // show final price to client
     result.innerText = finalPrice.toLocaleString()

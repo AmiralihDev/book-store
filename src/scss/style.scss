@@ -1,7 +1,7 @@
 $perple: rgb(125, 0, 179);
 $red : rgb(177, 0, 0);
 
-
+$primery : #00fff7;
 
 
 .writeText {
@@ -18,7 +18,7 @@ $red : rgb(177, 0, 0);
   }
   h1 {
     font-size: 45px;
-    color: $red;
+    color: $primery;
   }
 }
 
@@ -72,14 +72,15 @@ $red : rgb(177, 0, 0);
   }
 }
 .author {
+  font-size: 14px;
   img {
     width: 130px;
     height: 130px;
-    border: 2px solid $red;
+    border: 2px solid $primery;
     border-radius: 100%;
   }
   h1 {
-    font-size: 28px;
+    font-size: 25px;
     text-align: center;
   }
   border: 1px solid #b9b9b9;
@@ -112,7 +113,7 @@ $red : rgb(177, 0, 0);
     border-radius: 3px;
   }
   .active-tab {
-    background-color: $red;
+    background-color: $primery;
     color: #fff;
   }
   .tab-btn {
@@ -123,7 +124,7 @@ $red : rgb(177, 0, 0);
     letter-spacing: 1px;
     transition: 0.3s;
     &:hover {
-      background-color: $red;
+      background-color: $primery;
       color: #fff;
     }
   }

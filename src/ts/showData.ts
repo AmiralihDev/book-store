@@ -4,6 +4,7 @@ import { addBookToFav } from "./addToFav"
 import { removeBookFromCart, removeBookFromFav } from "./removeFromCart"
 import { addBookToCart } from "./addToCart"
 import { calculator } from "./calculator"
+import { StringOptionsWithImporter } from "sass"
 
 
 /**
@@ -20,7 +21,6 @@ import { calculator } from "./calculator"
  * @param {string} name - get book name
  * @param {string} zhanr - get book zhanr
  * @param {string} author - get book author
- * @param {number} makeYear - get book year 
  * @param {string} imgSrc - get book image src 
  * @param {number} price - get book price 
  * 
@@ -28,7 +28,7 @@ import { calculator } from "./calculator"
  */
 
 // books templates
-function showNewBook(id: number, name: string, zhanr: string, author: string, makeYear: number, imgSrc: string, price: number): HTMLElement {
+function showNewBook(id: number, name: string, zhanr: string, author: StringOptionsWithImporter, imgSrc: string, price: number): HTMLElement {
     // get updated cart book list
     let bookInCart = JSON.parse(getDataFromLs("cartBook"))
     // find book id for create buttons template and add events to buttons
@@ -88,7 +88,7 @@ function showNewBook(id: number, name: string, zhanr: string, author: string, ma
 
                         },
                         properties: {
-                            innerText: `سال انتشار : ${makeYear}`
+                            innerText: ``
                         }
                     },
                     {

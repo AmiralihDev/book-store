@@ -26,12 +26,9 @@ function editBook(e: object) {
     let bookList = JSON.parse(getDataFromLs("bookList"))
 
     // get book body
-    let imgSrc = e.children[0].src
     let bookNum = e.children[1].children[1].innerText
     let bookName = e.children[1].children[0].innerText
     let zhanr = e.children[2].children[0].innerText
-    let author = e.children[2].children[1].innerText
-    let makeNum = e.children[2].children[2].innerText
     let price = e.children[2].children[3].innerText
 
     // valid : is book ?
@@ -39,16 +36,15 @@ function editBook(e: object) {
         const book = bookList[index];
 
 
-        if (`شماره کتاب : ${book.id}` == bookNum ) {
+        if (`شماره کتاب : ${book.id}` == bookNum) {
             // show modal
-            getNewData(book.name, book.zhanr, book.author, book.makeYear, book.price)
+            getNewData(book.title, book.categories[0]?.title,`${book.authors[0]?.firstName} ${book.authors[0]?.lastName}`, book.beforeOffPrice)
 
             // get modal elements
             let confirm = document.getElementById("confirm")
             let newBookSrc = document.getElementById("newBookSrc")
             let newBookName = document.getElementById("newBookName")
             let newBookZhanr = document.getElementById("newBookZhanr")
-            let newBookYear = document.getElementById("newBookYear")
             let newBookPrice = document.getElementById("newBookPrice")
             let newBookAuthor = document.getElementById("newBookAuthor")
             let url: any;
@@ -60,7 +56,7 @@ function editBook(e: object) {
                     url = fr.result
                     if (url) {
 
-                        book.imgSrc = url.toString()
+                        book.coverUri = url.toString()
 
                     }
                 })
@@ -69,35 +65,46 @@ function editBook(e: object) {
             confirm?.addEventListener("click", () => {
 
                 // change book value
-                book.name = newBookName.value
-                book.zhanr = newBookZhanr.value
-                book.author = newBookAuthor.value
-                book.price = parseInt(newBookPrice.value)
-                book.makeYear = newBookYear.value
+                book.title = newBookName.value
+                book.categories[0].title = newBookZhanr.value
+                book.authors[0].firstName = newBookAuthor.value
+                book.authors[0].lastName = ""
+                book.beforeOffPrice = parseInt(newBookPrice.value)
+                    
 
                 // set book list to ls
                 setDataToLs("bookList", JSON.stringify(bookList))
                 let parent = e.parentElement
                 // empty container
                 parent.innerHTML = ""
-
+                let l:number
                 // create books
-                let book2 = bookList
-                for (const key of book2) {
-
-
+                if(parent.classList == "products-list"){
+                    l = 34
+                }else{
+                    l = bookList.length
+                }
+                for (let i=0; i <= l ; i++) {
+                    let key = bookList[i]
                     let template: any
-                    template = showNewBook(key.id, key.name, key.zhanr, key.author, key.makeYear, key.imgSrc, key.price)
-                    // check is book in slider (index.html) ?
-                    if (parent.classList == "swiper-wrapper") {
-                        // add slider class to template
-                        template.classList.add("swiper-slide")
+                    if(key.categories[0]?.title != undefined){
 
-                    } else {
+                        template = showNewBook(key.id, key.title, key.categories[0]?.title, `${key.authors[0].firstName} ${key.authors[0].lastName}`, key.coverUri, key.beforeOffPrice)
+                        if (parent.classList == "swiper-wrapper") {
+                            // add slider class to template
+                            template.classList.add("swiper-slide")
+    
+                        } else {
+    
+                        }
+                        // append to client
+                        parent.append(template)
+                    }
+                    else{
 
                     }
-                    // append to client
-                    parent.append(template)
+                    // check is book in slider (index.html) ?
+                   
                 }
 
                 // amaliat buttons events
@@ -112,22 +119,21 @@ function editBook(e: object) {
 
 
                     if (`شماره کتاب : ${favbook.id}` == bookNum &&
-                        favbook.name == bookName &&
-                        `ژانر : ${favbook.zhanr}` == zhanr &&
-                        `نویسنده : ${favbook.author}` == author &&
-                        `سال انتشار : ${favbook.makeYear}` == makeNum &&
-                        `قیمت کتاب : ${favbook.price.toLocaleString()}` == price
+                        favbook.title == bookName &&
+                        `ژانر : ${favbook.categories[0]?.title}` == zhanr &&
+                        `نویسنده : ${favbook.authors[0]?.firstName} ${favBook.authors[0]?.lastName}` == author &&
+                        `قیمت کتاب : ${favbook.beforeOffPrice.toLocaleString()}` == price
                     ) {
 
                         if (url) {
 
                             favbook.imgSrc = url.toString()
                         }
-                        favbook.name = newBookName.value
-                        favbook.zhanr = newBookZhanr.value
-                        favbook.author = newBookAuthor.value
-                        favbook.price = parseInt(newBookPrice.value)
-                        favbook.makeYear = parseInt(newBookYear.value)
+                        favbook.title = newBookName.value
+                        favbook.categories[0].title = newBookZhanr.value
+                        favbook.authors[0].firstName = newBookAuthor.value
+                        favbook.authors[0].lastName = ""
+                        favbook.beforeOffPrice = parseInt(newBookPrice.value)
                         setDataToLs("favBook", JSON.stringify(favBook))
                     }
                 }
@@ -136,17 +142,18 @@ function editBook(e: object) {
                     const cartbook = cartBook[index];
 
 
-                    if (`شماره کتاب : ${cartbook.id}` == bookNum 
+                    if (`شماره کتاب : ${cartbook.id}` == bookNum
                     ) {
                         if (url) {
 
                             cartbook.imgSrc = url.toString()
                         }
-                        cartbook.name = newBookName.value
-                        cartbook.zhanr = newBookZhanr.value
-                        cartbook.author = newBookAuthor.value
-                        cartbook.price = parseInt(newBookPrice.value)
-                        cartbook.makeYear = parseInt(newBookYear.value)
+                        cartbook.title = newBookName.value
+                        cartbook.categories[0].title = newBookZhanr.value
+                        cartbook.authors[0].firstName = newBookAuthor.value
+                        book.authors[0].lastName = ""
+
+                        cartbook.beforeOffPrice = parseInt(newBookPrice.value)
 
 
                         setDataToLs("cartBook", JSON.stringify(cartBook))
@@ -166,13 +173,11 @@ function editBook(e: object) {
  * 
  * @param {string} bookName 
  * @param {string} zhanr 
- * @param {string} author 
- * @param {number} makeYear 
  * @param {number} price 
  */
 
 
-function getNewData(bookName: string, zhanr: string, author: string, makeYear: string, price: string) {
+function getNewData(bookName: string, zhanr: string, author: string, price: string) {
     silverBox({
         title: {
             text: "ویرایش"
@@ -216,13 +221,6 @@ function getNewData(bookName: string, zhanr: string, author: string, makeYear: s
                 placeHolder: " ژانر کتاب را وارد کنید",
                 value: zhanr,
                 id: "newBookZhanr"
-            },
-            {
-                label: "سال انتشار ",
-                type: "number",
-                placeHolder: "سال انتشار را وارد کنید",
-                value: makeYear,
-                id: "newBookYear"
             },
             {
                 label: "قیمت کتاب",

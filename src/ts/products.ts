@@ -1,10 +1,8 @@
 // import modules
 
-import { addBookToCart } from "./addToCart"
 import { addBookToFav } from "./addToFav"
 import { editBook } from "./editBook"
 import { getDataFromLs } from "./getDataFromLs"
-import { getBookId } from "./main"
 import { setDataToLs } from "./setDataToLs"
 import { showNewBook } from "./showData"
 import { silverBox } from "./silverBox"
@@ -57,7 +55,7 @@ function filterBooks(zhanr: string) {
 
         bookList.filter((book) => {
 
-            if (book.zhanr == zhanr) {
+            if (book.categories[0]?.title.includes(zhanr)) {
                 filter.push(book)
             }
         })
@@ -74,10 +72,15 @@ function filterBooks(zhanr: string) {
     let filter2 = filter
     filter2.forEach((book) => {
         let template: HTMLElement
-        template = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        if (book.categories[0]?.title == undefined){
 
+        }else{
 
-        product?.append(template)
+            template = showNewBook(book.id, book.title, book.categories[0]?.title, `${book.authors[0].firstName} ${book.authors[0].lastName} `,  book.coverUri, book.beforeOffPrice)
+    
+    
+            product?.append(template)
+        }
     })
     // check user search
     filterSearchBook()
@@ -205,13 +208,17 @@ function addNewBookToList() {
     let url: any;
     // create new book object
     let book = {
-        name: "",
+        title : "",
         id: 0,
-        author: "",
-        makeYear: "",
-        zhanr: "",
-        price: 0,
-        imgSrc: ""
+        authors: [
+            {firstName: "", lastName : ""}
+        ],
+        // makeYear: "",
+        categories: [
+            {title : ""}
+        ],
+        beforeOffPrice: 0,
+        coverUri: ""
     }
     newBookSrc?.addEventListener("change", () => {
         // create img url
@@ -221,7 +228,7 @@ function addNewBookToList() {
             url = fr.result
             if (url) {
 
-                book.imgSrc = url.toString()
+                book.coverUri = url.toString()
             }
         })
     })
@@ -237,11 +244,11 @@ function addNewBookToList() {
         }
             
         )
-        book.name = newBookName.value;
-        book.author = newBookAuthor.value;
-        book.makeYear = newBookYear.value;
-        book.zhanr = newBookZhanr.value;
-        book.price = newBookPrice.value;
+        book.title = newBookName.value;
+        book.authors[0].firstName = newBookAuthor.value;
+        book.authors[0].lastName = ""
+        book.categories[0].title = newBookZhanr.value;
+        book.beforeOffPrice = newBookPrice.value;
         book.id = unicID + 1
         bookList.push(book)
         setDataToLs("bookList", JSON.stringify(bookList))
@@ -249,7 +256,7 @@ function addNewBookToList() {
         // show books
         bookList.forEach(booke => {
 
-            let tmp = showNewBook(booke.id, booke.name, booke.zhanr, booke.author, booke.makeYear, booke.imgSrc, booke.price)
+            let tmp = showNewBook(booke.id, booke.title, booke.categories[0]?.title, `${booke.authors[0].firstName} ${booke.authors[0].lastName} `, booke.coverUri, booke.beforeOffPrice)
             product?.append(tmp)
         })
 

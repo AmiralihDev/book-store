@@ -40,7 +40,7 @@ function showBook() {
     // show cart book
     cartBook.forEach((book) => {
         // create book template
-        let template: HTMLElement = showNewBook(book.id, book.name, book.zhanr, book.author, book.makeYear, book.imgSrc, book.price)
+        let template: HTMLElement = showNewBook(book.id, book.title, book.categories[0]?.title, `${book.authors[0].firstName} ${book.authors[0].lastName} `,  book.coverUri, book.beforeOffPrice)
         // append my template created to container
         container?.append(template)
     });

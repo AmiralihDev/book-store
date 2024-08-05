@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../src/scss/product.css">
   <link rel="stylesheet" href="../src/scss/fav.css">
   <link rel="stylesheet" href="../src/scss/cart.css">
-  <link rel="icon" href="/public/image/yakozaLogo-removebg-preview.png">
+  <link rel="icon" href="/public/image/yakuza.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -18,10 +18,33 @@
 <body dir="rtl">
   <header>
     <div class="up">
+      <ul class="menu">
+        <li><a class="menuItem" href="/index.html">خانه</a></li>
+        <li><a class="menuItem" href="/pages//products.html">محصولات</a></li>
+        <li><a class="menuItem" href="/pages/fav.html">علاقه مندی ها</a></li>
+        <li><a class="menuItem" href="/pages/priceBox.html">سبد خرید</a></li>
+        <li><a class="menuItem" href="/pages/about.html">درباره ما</a></li>
+      </ul>
+      <button class="hamburger">
+        <!-- material icons https://material.io/resources/icons/ -->
+        <i class="menuIcon material-icons"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+          </svg>
+        </i>
+        <i class="closeIcon material-icons">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+            viewBox="0 0 16 16">
+            <path
+              d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+          </svg>
+        </i>
+      </button>
       <div id="up-right">
         <div>
           <a id="icon" href="./index.html">
-            <img src="/public/image/yakozaLogo-removebg-preview.png" alt="">
+            <img src="/public/image/yakuza.png" alt="">
 
           </a>
         </div>
@@ -89,7 +112,7 @@
     <hr>
     <div id="footerSecond">
       <div>
-        <img src="/public/image/yakozaLogo-removebg-preview.png" alt="">
+        <img src="/public/image/yakuza.png" alt="">
         <div>
           <p>فروشگاه اینترنتی کتاب یاکوزا جایی برای خرید آنلاین و دانلود کتاب صوتی و الکترونیکی است. در کتاب‌فروشی آنلاین
             یاکوزا هزاران کتاب گویا و الکترونیکی در دسترس است که در میان آن‌ها کتاب رایگان هم وجود دارد. شما می‌توانید
@@ -143,15 +166,17 @@
         </div>
         <div>
           <ui>
-            <p>وبلاگ یاکوزا</p>
-            <li><a href="#">راهنمای خرید کتاب</a></li>
-            <li><a href="#">معرفی کتاب کیمیاگر</a></li>
-            <li><a href="#">معرفی کتاب جز از کل</a></li>
-            <li><a href="#">معرفی کتاب برای نوجوانان</a></li>
-            <li><a href="#">معرفی کتاب عقاید یک دلقک</a></li>
-            <li><a href="#">معرفی کتاب من ادوارد نیستم</a></li>
-            <li><a href="#">معرفی کتاب نبرد من</a></li>
-            <li><a href="#">معرفی کتاب کفش باز</a></li>
+            <ui>
+              <p>وبلاگ یاکوزا</p>
+              <li><a href="#">راهنمای خرید کتاب</a></li>
+              <li><a href="#">معرفی کتاب کیمیاگر</a></li>
+              <li><a href="#">معرفی کتاب جز از کل</a></li>
+              <li><a href="#"> کتاب برای نوجوانان</a></li>
+              <li><a href="#"> کتاب عقاید یک دلقک</a></li>
+              <li><a href="#"> کتاب من ادوارد نیستم</a></li>
+              <li><a href="#">معرفی کتاب نبرد من</a></li>
+              <li><a href="#">معرفی کتاب کفش باز</a></li>
+            </ui>
           </ui>
         </div>
       </div>
